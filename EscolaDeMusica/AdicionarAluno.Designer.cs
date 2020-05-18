@@ -42,22 +42,18 @@
             this.textBoxMorada = new System.Windows.Forms.TextBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.radioButtonMasculino = new System.Windows.Forms.RadioButton();
             this.radioButtonFeminino = new System.Windows.Forms.RadioButton();
-            this.label8 = new System.Windows.Forms.Label();
-            this.pictureBoxAluno = new System.Windows.Forms.PictureBox();
-            this.buttonUploadImagem = new System.Windows.Forms.Button();
+            this.radioButtonMasculino = new System.Windows.Forms.RadioButton();
             this.buttonAddAluno = new System.Windows.Forms.Button();
             this.buttonCancelar2 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAluno)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(40, 25);
+            this.label1.Location = new System.Drawing.Point(40, 42);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(53, 18);
             this.label1.TabIndex = 0;
@@ -67,7 +63,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(40, 61);
+            this.label2.Location = new System.Drawing.Point(40, 97);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(46, 18);
             this.label2.TabIndex = 1;
@@ -77,7 +73,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(40, 193);
+            this.label3.Location = new System.Drawing.Point(38, 296);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(147, 18);
             this.label3.TabIndex = 2;
@@ -87,7 +83,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(40, 103);
+            this.label4.Location = new System.Drawing.Point(40, 156);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(80, 18);
             this.label4.TabIndex = 3;
@@ -97,7 +93,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(40, 131);
+            this.label5.Location = new System.Drawing.Point(40, 199);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(35, 18);
             this.label5.TabIndex = 4;
@@ -107,7 +103,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(37, 157);
+            this.label6.Location = new System.Drawing.Point(37, 247);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(49, 18);
             this.label6.TabIndex = 5;
@@ -117,7 +113,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(40, 225);
+            this.label7.Location = new System.Drawing.Point(40, 351);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(63, 18);
             this.label7.TabIndex = 6;
@@ -125,35 +121,35 @@
             // 
             // textBoxName
             // 
-            this.textBoxName.Location = new System.Drawing.Point(126, 25);
+            this.textBoxName.Location = new System.Drawing.Point(126, 42);
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(207, 20);
             this.textBoxName.TabIndex = 7;
             // 
             // textBoxTelemovel
             // 
-            this.textBoxTelemovel.Location = new System.Drawing.Point(126, 103);
+            this.textBoxTelemovel.Location = new System.Drawing.Point(126, 156);
             this.textBoxTelemovel.Name = "textBoxTelemovel";
             this.textBoxTelemovel.Size = new System.Drawing.Size(207, 20);
             this.textBoxTelemovel.TabIndex = 8;
             // 
             // textBoxNIF
             // 
-            this.textBoxNIF.Location = new System.Drawing.Point(126, 129);
+            this.textBoxNIF.Location = new System.Drawing.Point(126, 197);
             this.textBoxNIF.Name = "textBoxNIF";
             this.textBoxNIF.Size = new System.Drawing.Size(207, 20);
             this.textBoxNIF.TabIndex = 9;
             // 
             // textBoxEmail
             // 
-            this.textBoxEmail.Location = new System.Drawing.Point(126, 155);
+            this.textBoxEmail.Location = new System.Drawing.Point(126, 245);
             this.textBoxEmail.Name = "textBoxEmail";
             this.textBoxEmail.Size = new System.Drawing.Size(207, 20);
             this.textBoxEmail.TabIndex = 10;
             // 
             // textBoxMorada
             // 
-            this.textBoxMorada.Location = new System.Drawing.Point(126, 226);
+            this.textBoxMorada.Location = new System.Drawing.Point(126, 352);
             this.textBoxMorada.Multiline = true;
             this.textBoxMorada.Name = "textBoxMorada";
             this.textBoxMorada.Size = new System.Drawing.Size(207, 66);
@@ -163,7 +159,7 @@
             // 
             this.dateTimePicker1.CustomFormat = "dd/MM/yyyy";
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(193, 191);
+            this.dateTimePicker1.Location = new System.Drawing.Point(191, 294);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker1.TabIndex = 13;
@@ -172,22 +168,11 @@
             // 
             this.groupBox1.Controls.Add(this.radioButtonFeminino);
             this.groupBox1.Controls.Add(this.radioButtonMasculino);
-            this.groupBox1.Location = new System.Drawing.Point(126, 51);
+            this.groupBox1.Location = new System.Drawing.Point(126, 87);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(200, 37);
             this.groupBox1.TabIndex = 14;
             this.groupBox1.TabStop = false;
-            // 
-            // radioButtonMasculino
-            // 
-            this.radioButtonMasculino.AutoSize = true;
-            this.radioButtonMasculino.Location = new System.Drawing.Point(6, 14);
-            this.radioButtonMasculino.Name = "radioButtonMasculino";
-            this.radioButtonMasculino.Size = new System.Drawing.Size(73, 17);
-            this.radioButtonMasculino.TabIndex = 0;
-            this.radioButtonMasculino.TabStop = true;
-            this.radioButtonMasculino.Text = "Masculino";
-            this.radioButtonMasculino.UseVisualStyleBackColor = true;
             // 
             // radioButtonFeminino
             // 
@@ -200,35 +185,16 @@
             this.radioButtonFeminino.Text = "Feminino";
             this.radioButtonFeminino.UseVisualStyleBackColor = true;
             // 
-            // label8
+            // radioButtonMasculino
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(37, 310);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(79, 18);
-            this.label8.TabIndex = 15;
-            this.label8.Text = "Fotografia:";
-            this.label8.Click += new System.EventHandler(this.label8_Click);
-            // 
-            // pictureBoxAluno
-            // 
-            this.pictureBoxAluno.BackColor = System.Drawing.Color.Gainsboro;
-            this.pictureBoxAluno.Location = new System.Drawing.Point(132, 310);
-            this.pictureBoxAluno.Name = "pictureBoxAluno";
-            this.pictureBoxAluno.Size = new System.Drawing.Size(227, 89);
-            this.pictureBoxAluno.TabIndex = 16;
-            this.pictureBoxAluno.TabStop = false;
-            // 
-            // buttonUploadImagem
-            // 
-            this.buttonUploadImagem.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.buttonUploadImagem.Location = new System.Drawing.Point(132, 406);
-            this.buttonUploadImagem.Name = "buttonUploadImagem";
-            this.buttonUploadImagem.Size = new System.Drawing.Size(155, 23);
-            this.buttonUploadImagem.TabIndex = 17;
-            this.buttonUploadImagem.Text = "Carregar Imagem";
-            this.buttonUploadImagem.UseVisualStyleBackColor = false;
+            this.radioButtonMasculino.AutoSize = true;
+            this.radioButtonMasculino.Location = new System.Drawing.Point(6, 14);
+            this.radioButtonMasculino.Name = "radioButtonMasculino";
+            this.radioButtonMasculino.Size = new System.Drawing.Size(73, 17);
+            this.radioButtonMasculino.TabIndex = 0;
+            this.radioButtonMasculino.TabStop = true;
+            this.radioButtonMasculino.Text = "Masculino";
+            this.radioButtonMasculino.UseVisualStyleBackColor = true;
             // 
             // buttonAddAluno
             // 
@@ -261,9 +227,6 @@
             this.ClientSize = new System.Drawing.Size(433, 537);
             this.Controls.Add(this.buttonCancelar2);
             this.Controls.Add(this.buttonAddAluno);
-            this.Controls.Add(this.buttonUploadImagem);
-            this.Controls.Add(this.pictureBoxAluno);
-            this.Controls.Add(this.label8);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.textBoxMorada);
@@ -283,7 +246,6 @@
             this.Text = "AdicionarAluno";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAluno)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -307,9 +269,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.RadioButton radioButtonFeminino;
         private System.Windows.Forms.RadioButton radioButtonMasculino;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.PictureBox pictureBoxAluno;
-        private System.Windows.Forms.Button buttonUploadImagem;
         private System.Windows.Forms.Button buttonAddAluno;
         private System.Windows.Forms.Button buttonCancelar2;
     }

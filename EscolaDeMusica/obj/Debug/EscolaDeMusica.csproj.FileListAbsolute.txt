@@ -1,0 +1,12 @@
+C:\Users\Utilizador\Desktop\UNIVERSIDADE\2Semestre\BD\Projeto\2ªEntrega\Projeto-BD\EscolaDeMusica\bin\Debug\EscolaDeMusica.exe.config
+C:\Users\Utilizador\Desktop\UNIVERSIDADE\2Semestre\BD\Projeto\2ªEntrega\Projeto-BD\EscolaDeMusica\bin\Debug\EscolaDeMusica.exe
+C:\Users\Utilizador\Desktop\UNIVERSIDADE\2Semestre\BD\Projeto\2ªEntrega\Projeto-BD\EscolaDeMusica\bin\Debug\EscolaDeMusica.pdb
+C:\Users\Utilizador\Desktop\UNIVERSIDADE\2Semestre\BD\Projeto\2ªEntrega\Projeto-BD\EscolaDeMusica\obj\Debug\EscolaDeMusica.csprojAssemblyReference.cache
+C:\Users\Utilizador\Desktop\UNIVERSIDADE\2Semestre\BD\Projeto\2ªEntrega\Projeto-BD\EscolaDeMusica\obj\Debug\EscolaDeMusica.Login_Form.resources
+C:\Users\Utilizador\Desktop\UNIVERSIDADE\2Semestre\BD\Projeto\2ªEntrega\Projeto-BD\EscolaDeMusica\obj\Debug\EscolaDeMusica.Properties.Resources.resources
+C:\Users\Utilizador\Desktop\UNIVERSIDADE\2Semestre\BD\Projeto\2ªEntrega\Projeto-BD\EscolaDeMusica\obj\Debug\EscolaDeMusica.csproj.GenerateResource.cache
+C:\Users\Utilizador\Desktop\UNIVERSIDADE\2Semestre\BD\Projeto\2ªEntrega\Projeto-BD\EscolaDeMusica\obj\Debug\EscolaDeMusica.exe
+C:\Users\Utilizador\Desktop\UNIVERSIDADE\2Semestre\BD\Projeto\2ªEntrega\Projeto-BD\EscolaDeMusica\obj\Debug\EscolaDeMusica.pdb
+C:\Users\Utilizador\Desktop\UNIVERSIDADE\2Semestre\BD\Projeto\2ªEntrega\Projeto-BD\EscolaDeMusica\obj\Debug\EscolaDeMusica.MainForm.resources
+C:\Users\Utilizador\Desktop\UNIVERSIDADE\2Semestre\BD\Projeto\2ªEntrega\Projeto-BD\EscolaDeMusica\obj\Debug\EscolaDeMusica.AdicionarAluno.resources
+C:\Users\Utilizador\Desktop\UNIVERSIDADE\2Semestre\BD\Projeto\2ªEntrega\Projeto-BD\EscolaDeMusica\obj\Debug\EscolaDeMusica.alunosLista.resources

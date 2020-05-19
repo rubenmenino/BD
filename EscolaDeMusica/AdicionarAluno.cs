@@ -153,9 +153,9 @@ namespace EscolaDeMusica
             SqlDataAdapter adapter = new SqlDataAdapter();
             DataTable table = new DataTable();
 
-            SqlCommand command = new SqlCommand("UPDATE projeto.Pessoa SET dataNascimento=@Data_Nasc, telemovel=@Telemovel, nom=@Nome, sexo=@Sexo, nif=@NIF, email=@Email, morada=@Morada WHERE , id=@id", cn);
+            SqlCommand command = new SqlCommand("UPDATE projeto.Pessoa SET dataNascimento=@Data_Nasc, telemovel=@Telemovel, nom=@Nome, sexo=@Sexo, nif=@NIF, email=@Email, morada=@Morada WHERE , id=@PESSOA_Codigo", cn);
 
-            command.Parameters.Add("@id", SqlDbType.Int).Value = id;
+            command.Parameters.Add("@PESSOA_Codigo", SqlDbType.Int).Value = id;
             command.Parameters.Add("@Data_Nasc", SqlDbType.Date).Value = dataNascimento;
             command.Parameters.Add("@Telemovel", SqlDbType.VarChar).Value = telemovel;
             command.Parameters.Add("@Nome", SqlDbType.VarChar).Value = nome;
@@ -183,9 +183,9 @@ namespace EscolaDeMusica
             SqlDataAdapter adapter = new SqlDataAdapter();
             DataTable table = new DataTable();
 
-            SqlCommand command = new SqlCommand("DELETE FROM projeto.Pessoa WHERE , id=@studentID", cn);
+            SqlCommand command = new SqlCommand("DELETE FROM projeto.Pessoa WHERE , id=@PESSOA_Codigo", cn);
 
-            command.Parameters.Add("@studentID", SqlDbType.Int).Value = id;
+            command.Parameters.Add("@PESSOA_Codigo", SqlDbType.Int).Value = id;
             
 
             cn.Open();
@@ -200,6 +200,16 @@ namespace EscolaDeMusica
                 cn.Close();
                 return false;
             }
+        }
+
+        private void AdicionarAluno_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonCancelar2_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

@@ -218,6 +218,7 @@
             this.buttonCancelar2.TabIndex = 19;
             this.buttonCancelar2.Text = "Cancelar";
             this.buttonCancelar2.UseVisualStyleBackColor = false;
+            this.buttonCancelar2.Click += new System.EventHandler(this.buttonCancelar2_Click);
             // 
             // AdicionarAluno
             // 
@@ -244,6 +245,7 @@
             this.Name = "AdicionarAluno";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdicionarAluno";
+            this.Load += new System.EventHandler(this.AdicionarAluno_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

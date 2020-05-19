@@ -37,7 +37,7 @@ namespace EscolaDeMusica
 
 
         AdicionarAluno x = new AdicionarAluno();
-        private void alunosLista_Load(object sender, EventArgs e)
+        private void alunosLista_Load(object sender, EventArgs e) 
         {
             cn = getSGBDConnection();
             SqlCommand command = new SqlCommand("SELECT * FROM projeto.Pessoa", cn);
@@ -50,9 +50,33 @@ namespace EscolaDeMusica
         private void dataGridView1_DoubleClick(object sender, EventArgs e)
         {
 
+            UpdateDelete updelete = new UpdateDelete();
+            updelete.textBoxID.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            updelete.dateTimePicker1.Value = (DateTime)dataGridView1.CurrentRow.Cells[1].Value;
+            updelete.textBoxTelemovel.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+            updelete.textBoxName.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
+            //sexo
+            if(dataGridView1.CurrentRow.Cells[4].Value.ToString() == "Feminino")
+            {
+                updelete.radioButtonFeminino.Checked = true;
+            }
+            updelete.textBoxNIF.Text = dataGridView1.CurrentRow.Cells[5].Value.ToString();
+            updelete.textBoxEmail.Text = dataGridView1.CurrentRow.Cells[6].Value.ToString();
+            updelete.textBoxMorada.Text = dataGridView1.CurrentRow.Cells[7].Value.ToString();
+            updelete.Show();
         }
 
         private void Atualizar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

@@ -42,7 +42,7 @@ namespace EscolaDeMusica
             cn = getSGBDConnection();
             SqlCommand command = new SqlCommand("SELECT * FROM projeto.Pessoa", cn);
             dataGridView1.ReadOnly = true;
-            dataGridView1.RowTemplate.Height = 80;
+            dataGridView1.RowTemplate.Height = 30;
             dataGridView1.DataSource = x.getAlunos(command);
             dataGridView1.AllowUserToAddRows = false;
         }

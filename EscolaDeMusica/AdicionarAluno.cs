@@ -112,7 +112,7 @@ namespace EscolaDeMusica
 
             SqlCommand command = new SqlCommand("INSERT projeto.Pessoa (Data_Nasc, Telemovel, Nome, Sexo, NIF, Email, Morada) " + "VALUES (@Data_Nasc, @Telemovel, @Nome, @Sexo, @NIF, @Email, @Morada)", cn);
 
-            // @Data_Nasc, @Telemovel, @Nome, @Sexo, @NIF, @Email, @Morada, @imagem
+            // @Data_Nasc, @Telemovel, @Nome, @Sexo, @NIF, @Email, @Morada
             command.Parameters.Add("@Data_Nasc", SqlDbType.Date).Value = dataNascimento;
             command.Parameters.Add("@Telemovel", SqlDbType.VarChar).Value = telemovel;
             command.Parameters.Add("@Nome", SqlDbType.VarChar).Value = nome;
@@ -147,5 +147,59 @@ namespace EscolaDeMusica
         }
             
         
+        public bool updateAluno(int id, DateTime dataNascimento, string telemovel, string nome, string sexo, string nif, string email, string morada)
+        {
+            // @Data_Nasc, @Telemovel, @Nome, @Sexo, @NIF, @Email, @Morada
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            DataTable table = new DataTable();
+
+            SqlCommand command = new SqlCommand("UPDATE projeto.Pessoa SET dataNascimento=@Data_Nasc, telemovel=@Telemovel, nom=@Nome, sexo=@Sexo, nif=@NIF, email=@Email, morada=@Morada WHERE , id=@id", cn);
+
+            command.Parameters.Add("@id", SqlDbType.Int).Value = id;
+            command.Parameters.Add("@Data_Nasc", SqlDbType.Date).Value = dataNascimento;
+            command.Parameters.Add("@Telemovel", SqlDbType.VarChar).Value = telemovel;
+            command.Parameters.Add("@Nome", SqlDbType.VarChar).Value = nome;
+            command.Parameters.Add("@Sexo", SqlDbType.VarChar).Value = sexo;
+            command.Parameters.Add("@NIF", SqlDbType.Int).Value = nif;
+            command.Parameters.Add("@Email", SqlDbType.VarChar).Value = email;
+            command.Parameters.Add("@Morada", SqlDbType.VarChar).Value = morada;
+
+            cn.Open();
+
+            if (command.ExecuteNonQuery() == 1)
+            {
+                cn.Close();
+                return true;
+            }
+            else
+            {
+                cn.Close();
+                return false;
+            }
+        }
+
+        public bool deleteAluno(int id)
+        {
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            DataTable table = new DataTable();
+
+            SqlCommand command = new SqlCommand("DELETE FROM projeto.Pessoa WHERE , id=@studentID", cn);
+
+            command.Parameters.Add("@studentID", SqlDbType.Int).Value = id;
+            
+
+            cn.Open();
+
+            if (command.ExecuteNonQuery() == 1)
+            {
+                cn.Close();
+                return true;
+            }
+            else
+            {
+                cn.Close();
+                return false;
+            }
+        }
     }
 }

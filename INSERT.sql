@@ -250,3 +250,18 @@ INSERT INTO projeto.Request VALUES
 SELECT * FROM projeto.Request
 
 ---------------------------------------------------------------------------------------------------
+
+DELETE FROM projeto.Funcionario
+
+INSERT INTO projeto.Funcionario VALUES
+	(400, 3, 'rubenmenino'),
+	(500, 2, 'paocomatum'
+	);
+
+SELECT * FROM projeto.Funcionario
+
+SELECT Nome, Sexo, NIF, Telemovel, Email, Morada FROM projeto.Pessoa INNER JOIN projeto.Funcionario ON Pessoa.PESSOA_Codigo = Funcionario.FUNCIONARIO_Codigo
+WHERE PESSOA_Codigo = 3
+
+SELECT Nome, Sexo, NIF, Telemovel, Email, Morada FROM projeto.Pessoa INNER JOIN projeto.Funcionario ON Pessoa.PESSOA_Codigo = Funcionario.FUNCIONARIO_Codigo
+WHERE PESSOA_Codigo = 2

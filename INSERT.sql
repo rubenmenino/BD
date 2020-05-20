@@ -1,4 +1,4 @@
-USE projeto
+-- USE projeto
 DELETE FROM projeto.Pessoa 	
 -- PESSOA_Codigo, Data_Nasc, Telemovel, Nome, Sexo, NIF, Email, Morada	
 INSERT INTO projeto.Pessoa VALUES 
@@ -92,8 +92,9 @@ WHERE INSTRUMENTO_Nome = 'Bombo'
 DELETE FROM projeto.Instrumento 
 -- INSTRUMENTO_Nome, INSTRUMENTO_Tipo
 INSERT INTO projeto.Instrumento VALUES 
-		('Bombo', 'Percussão'),
+		
 		('Oboe', 'Sopro'),
+		('Bombo', 'Percussão'),
 		('Trompete', 'Metais'),
 		('Sininho', 'Percussão'),
 		('Tambor', 'Percussão'),
@@ -261,7 +262,13 @@ INSERT INTO projeto.Funcionario VALUES
 SELECT * FROM projeto.Funcionario
 
 SELECT Nome, Sexo, NIF, Telemovel, Email, Morada FROM projeto.Pessoa INNER JOIN projeto.Funcionario ON Pessoa.PESSOA_Codigo = Funcionario.FUNCIONARIO_Codigo
-WHERE PESSOA_Codigo = 3
+
 
 SELECT Nome, Sexo, NIF, Telemovel, Email, Morada FROM projeto.Pessoa INNER JOIN projeto.Funcionario ON Pessoa.PESSOA_Codigo = Funcionario.FUNCIONARIO_Codigo
-WHERE PESSOA_Codigo = 2
+
+
+
+INSERT INTO projeto.Aluno (ALUNO_Codigo)
+(select Nome, Sexo, NIF, Telemovel, Email, Morada
+FROM projeto.Pessoa INNER JOIN projeto.Funcionario ON Pessoa.PESSOA_Codigo = Funcionario.FUNCIONARIO_Codigo) 
+	

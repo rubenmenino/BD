@@ -110,7 +110,9 @@ namespace EscolaDeMusica
             SqlDataAdapter adapter = new SqlDataAdapter();
             DataTable table = new DataTable();
 
-            SqlCommand command = new SqlCommand("INSERT projeto.Pessoa (Data_Nasc, Telemovel, Nome, Sexo, NIF, Email, Morada) " + "VALUES (@Data_Nasc, @Telemovel, @Nome, @Sexo, @NIF, @Email, @Morada)", cn);
+            SqlCommand command = new SqlCommand("INSERT projeto.Aluno (Data_Nasc, Telemovel, Nome, Sexo, NIF, Email, Morada, Mensalidade) " + "VALUES (@Data_Nasc, @Telemovel, @Nome, @Sexo, @NIF, @Email, @Morada, @Mensalidade); SELECT SCOPE_IDENTITY();", cn);
+
+
 
             // @Data_Nasc, @Telemovel, @Nome, @Sexo, @NIF, @Email, @Morada
             command.Parameters.Add("@Data_Nasc", SqlDbType.Date).Value = dataNascimento;
@@ -120,6 +122,9 @@ namespace EscolaDeMusica
             command.Parameters.Add("@NIF", SqlDbType.Int).Value = nif;
             command.Parameters.Add("@Email", SqlDbType.VarChar).Value = email;
             command.Parameters.Add("@Morada", SqlDbType.VarChar).Value = morada;
+            command.Parameters.Add("@Mensalidade", SqlDbType.Int).Value = 25;
+
+            
 
             cn.Open();
 

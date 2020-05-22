@@ -40,7 +40,7 @@ namespace EscolaDeMusica
         private void alunosLista_Load(object sender, EventArgs e) 
         {
             cn = getSGBDConnection();
-            SqlCommand command = new SqlCommand("SELECT * FROM projeto.Pessoa", cn);
+            SqlCommand command = new SqlCommand("SELECT * FROM projeto.Aluno", cn);
             dataGridView1.ReadOnly = true;
             dataGridView1.RowTemplate.Height = 30;
             dataGridView1.DataSource = x.getAlunos(command);

@@ -4,7 +4,6 @@ GO
 
 
 
-DROP TABLE IF EXISTS projeto.Pessoa
 DROP TABLE IF EXISTS projeto.Toca1
 DROP TABLE IF EXISTS projeto.Toca2
 DROP TABLE IF EXISTS projeto.Instrumento
@@ -24,27 +23,12 @@ DROP TABLE IF EXISTS projeto.Aluno
 DROP TABLE IF EXISTS projeto.Professor
 
 
-
-CREATE TABLE projeto.Pessoa (
-	PESSOA_Codigo		INT IDENTITY(1,1)	NOT NULL,
-	Data_Nasc			DATE				NOT NULL,
-	Telemovel			VARCHAR(15),
-	Nome				VARCHAR(50)			NOT NULL,
-	Sexo				VARCHAR(20)				NOT NULL,
-	NIF					INT					NOT NULL,
-	Email				VARCHAR(100)		NOT NULL,
-	Morada				VARCHAR(200)		NOT NULL,
-	PRIMARY KEY(PESSOA_Codigo),
-	CHECK(PESSOA_Codigo > 0)
-)
-
-
 ---------------------------------------------------------
 ---------------------------------------------------------
 
 CREATE TABLE projeto.Toca1(
 	INSTRUMENTO_Nome	VARCHAR(30)		 NOT NULL,
-	ALUNO_Codigo		INT NOT NULL,
+	ALUNO_Codigo		INT				 NOT NULL,
 	PRIMARY KEY(INSTRUMENTO_Nome, ALUNO_Codigo )
 )
 
@@ -56,7 +40,7 @@ CREATE TABLE projeto.Toca1(
 
 CREATE TABLE projeto.Toca2(
 	INSTRUMENTO_Nome	VARCHAR(30)		 NOT NULL,
-	PROFESSOR_Codigo	INT NOT NULL,
+	PROFESSOR_Codigo	INT              NOT NULL,
 	PRIMARY KEY(INSTRUMENTO_Nome, PROFESSOR_Codigo)
 )
 
@@ -209,15 +193,20 @@ CREATE TABLE projeto.Evento (
 ---------------------------------------------------------
 
 CREATE TABLE projeto.Aluno (
-	ALUNO_Codigo		INT NOT NULL,
-	Mensalidade			INT NOT NULL,
+	ALUNO_Codigo		INT IDENTITY(1,1)	NOT NULL,
+	Data_Nasc			DATE				NOT NULL,
+	Telemovel			VARCHAR(15),
+	Nome				VARCHAR(50)			NOT NULL,
+	Sexo				VARCHAR(20)			NOT NULL,
+	NIF					INT					NOT NULL,
+	Email				VARCHAR(100)		NOT NULL,
+	Morada				VARCHAR(200)		NOT NULL,
+	Mensalidade			INT DEFAULT 25 NOT NULL ,
 	TURMA_Numero		INT,
 	TURMA_ID			INT,
-	PRIMARY KEY(ALUNO_Codigo),
+	PRIMARY KEY CLUSTERED (ALUNO_Codigo),
 	CHECK(Mensalidade > 20)
 )
-
-
 
 ---------------------------------------------------------
 ---------------------------------------------------------
@@ -252,8 +241,16 @@ CREATE TABLE projeto.Tem (
 ---------------------------------------------------------
 
 CREATE TABLE projeto.Professor (
+	PROFESSOR_Codigo	INT IDENTITY(100, 1),
+	Data_Nasc			DATE				NOT NULL,
+	Telemovel			VARCHAR(15),
+	Nome				VARCHAR(50)			NOT NULL,
+	Sexo				VARCHAR(20)			NOT NULL,
+	NIF					INT					NOT NULL,
+	Email				VARCHAR(100)		NOT NULL,
+	Morada				VARCHAR(200)		NOT NULL,
 	Salario				INT			NOT NULL,
-	PROFESSOR_Codigo		INT,
+	
 	DISCIPLINA_ID		INT,
 	DIRECAO_Cargo		VARCHAR(30),
 	DIRECAO_Codigo		INT,
@@ -266,9 +263,16 @@ CREATE TABLE projeto.Professor (
 ---------------------------------------------------------
 
 CREATE TABLE projeto.Funcionario (
+    FUNCIONARIO_Codigo		INT IDENTITY(1,1)	NOT NULL,
+	Data_Nasc			DATE				NOT NULL,
+	Telemovel			VARCHAR(15),
+	Nome				VARCHAR(50)			NOT NULL,
+	Sexo				VARCHAR(20)			NOT NULL,
+	NIF					INT					NOT NULL,
+	Email				VARCHAR(100)		NOT NULL,
+	Morada				VARCHAR(200)		NOT NULL,
 	Salario				INT			NOT NULL,
-	FUNCIONARIO_Codigo		INT,
-	LOGIN_Utilizador	VARCHAR(30),
+	LOGIN_Utilizador	VARCHAR(30) NOT NULL,
 	PRIMARY KEY(FUNCIONARIO_Codigo)
 )
 
@@ -296,19 +300,19 @@ ALTER TABLE projeto.Direcao ADD FOREIGN KEY(Cargo) REFERENCES projeto.Pertence1(
 ALTER TABLE projeto.Direcao ADD FOREIGN KEY(Cargo) REFERENCES projeto.Pertence2(Cargo)
 ALTER TABLE projeto.Evento ADD FOREIGN KEY(EVENTO_Ano) REFERENCES projeto.Direcao(Ano)
 ALTER TABLE projeto.Evento ADD  FOREIGN KEY(Aceite) REFERENCES projeto.Request(Aceite)
-ALTER TABLE projeto.Aluno ADD FOREIGN KEY(ALUNO_Codigo) REFERENCES projeto.Pessoa(PESSOA_Codigo)
+
 ALTER TABLE projeto.Aluno ADD FOREIGN KEY(ALUNO_Codigo) REFERENCES projeto.Tem(ALUNO_Codigo)
 ALTER TABLE projeto.Aluno ADD FOREIGN KEY(ALUNO_Codigo) REFERENCES projeto.Toca1(ALUNO_Codigo)
 ALTER TABLE projeto.Aluno ADD FOREIGN KEY(ALUNO_Codigo) REFERENCES projeto.Participa1(ALUNO_Codigo)
 ALTER TABLE projeto.Aluno ADD FOREIGN KEY(TURMA_Numero) REFERENCES projeto.Turma(Numero)
 ALTER TABLE projeto.Aluno ADD FOREIGN KEY(TURMA_ID) REFERENCES projeto.Turma(DISCILINA_ID)
+
 ALTER TABLE projeto.Participa1 ADD FOREIGN KEY(ALUNO_Codigo) REFERENCES projeto.Aluno(ALUNO_Codigo)
 ALTER TABLE projeto.Participa1 ADD FOREIGN KEY(Representante) REFERENCES projeto.Grupo(Representante)
 ALTER TABLE projeto.Participa2 ADD FOREIGN KEY(PROFESSOR_CODIGO) REFERENCES projeto.Aluno(PROFESSOR_Codigo)
 ALTER TABLE projeto.Participa2 ADD FOREIGN KEY(Representante) REFERENCES projeto.Grupo(Representante)
 ALTER TABLE projeto.Tem ADD FOREIGN KEY(ALUNO_Codigo) REFERENCES projeto.Aluno(ALUNO_Codigo)
 ALTER TABLE projeto.Tem ADD FOREIGN KEY(PROFESSOR_Codigo) REFERENCES projeto.Aluno(PROFESSOR_Codigo)
-ALTER TABLE projeto.Professor ADD FOREIGN KEY(PROFESSOR_Codigo) REFERENCES projeto.Pessoa(PESSOA_Codigo)
 ALTER TABLE projeto.Professor ADD FOREIGN KEY(PROFESSOR_Codigo) REFERENCES projeto.Pertence2(PROFESSOR_Codigo)
 ALTER TABLE projeto.Professor ADD FOREIGN KEY(PROFESSOR_Codigo) REFERENCES projeto.Tem(PROFESSOR_Codigo)
 ALTER TABLE projeto.Professor ADD FOREIGN KEY(PROFESSOR_Codigo) REFERENCES projeto.Disciplina(PROFESSOR_Codigo)
@@ -319,7 +323,6 @@ ALTER TABLE projeto.Professor ADD FOREIGN KEY(PROFESSOR_Codigo) REFERENCES proje
 ALTER TABLE projeto.Professor ADD FOREIGN KEY(DISCIPLINA_ID) REFERENCES projeto.Disciplina(ID)
 ALTER TABLE projeto.Professor ADD FOREIGN KEY(DIRECAO_Cargo) REFERENCES projeto.Direcao(Cargo)
 ALTER TABLE projeto.Funcionario ADD FOREIGN KEY(FUNCIONARIO_Codigo) REFERENCES projeto.Pertence1(FUNCIONARIO_Codigo)
-ALTER TABLE projeto.Funcionario ADD FOREIGN KEY(FUNCIONARIO_Codigo) REFERENCES projeto.Pessoa(PESSOA_Codigo)
 ALTER TABLE projeto.Funcionario ADD FOREIGN KEY(LOGIN_Utilizador) REFERENCES projeto.Login(Utilizador)
 
 GO

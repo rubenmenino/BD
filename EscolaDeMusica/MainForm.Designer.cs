@@ -38,6 +38,7 @@
             this.gruposToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.turmaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.direçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.adicionarProfessorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -96,10 +97,13 @@
             // 
             // professorToolStripMenuItem
             // 
+            this.professorToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.adicionarProfessorToolStripMenuItem});
             this.professorToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.professorToolStripMenuItem.Name = "professorToolStripMenuItem";
             this.professorToolStripMenuItem.Size = new System.Drawing.Size(82, 24);
             this.professorToolStripMenuItem.Text = "Professor";
+            this.professorToolStripMenuItem.Click += new System.EventHandler(this.professorToolStripMenuItem_Click);
             // 
             // gruposToolStripMenuItem
             // 
@@ -121,6 +125,13 @@
             this.direçãoToolStripMenuItem.Name = "direçãoToolStripMenuItem";
             this.direçãoToolStripMenuItem.Size = new System.Drawing.Size(73, 24);
             this.direçãoToolStripMenuItem.Text = "Direção";
+            // 
+            // adicionarProfessorToolStripMenuItem
+            // 
+            this.adicionarProfessorToolStripMenuItem.Name = "adicionarProfessorToolStripMenuItem";
+            this.adicionarProfessorToolStripMenuItem.Size = new System.Drawing.Size(207, 24);
+            this.adicionarProfessorToolStripMenuItem.Text = "Adicionar Professor";
+            this.adicionarProfessorToolStripMenuItem.Click += new System.EventHandler(this.adicionarProfessorToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -152,5 +163,6 @@
         private System.Windows.Forms.ToolStripMenuItem gruposToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem turmaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem direçãoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem adicionarProfessorToolStripMenuItem;
     }
 }

@@ -152,15 +152,15 @@ namespace EscolaDeMusica
         }
             
         
-        public bool updateAluno(int id, DateTime dataNascimento, string telemovel, string nome, string sexo, string nif, string email, string morada)
+        public bool updateAluno(DateTime dataNascimento, string telemovel, string nome, string sexo, string nif, string email, string morada)
         {
             // @Data_Nasc, @Telemovel, @Nome, @Sexo, @NIF, @Email, @Morada
             SqlDataAdapter adapter = new SqlDataAdapter();
             DataTable table = new DataTable();
 
-            SqlCommand command = new SqlCommand("UPDATE projeto.Pessoa SET dataNascimento=@Data_Nasc, telemovel=@Telemovel, nom=@Nome, sexo=@Sexo, nif=@NIF, email=@Email, morada=@Morada WHERE , id=@PESSOA_Codigo", cn);
+            SqlCommand command = new SqlCommand("UPDATE projeto.Pessoa SET dataNascimento=@Data_Nasc, telemovel=@Telemovel, nome=@Nome, sexo=@Sexo, nif=@NIF, email=@Email, morada=@Morada WHERE nif=@NIF", cn);
 
-            command.Parameters.Add("@PESSOA_Codigo", SqlDbType.Int).Value = id;
+            
             command.Parameters.Add("@Data_Nasc", SqlDbType.Date).Value = dataNascimento;
             command.Parameters.Add("@Telemovel", SqlDbType.VarChar).Value = telemovel;
             command.Parameters.Add("@Nome", SqlDbType.VarChar).Value = nome;

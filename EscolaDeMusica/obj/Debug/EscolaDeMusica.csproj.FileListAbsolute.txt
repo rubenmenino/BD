@@ -25,3 +25,4 @@ C:\Users\SAUDADE\Desktop\BD\Projeto-BD\EscolaDeMusica\obj\Debug\EscolaDeMusica.c
 C:\Users\SAUDADE\Desktop\BD\Projeto-BD\EscolaDeMusica\obj\Debug\EscolaDeMusica.exe
 C:\Users\SAUDADE\Desktop\BD\Projeto-BD\EscolaDeMusica\obj\Debug\EscolaDeMusica.pdb
 C:\Users\SAUDADE\Desktop\BD\Projeto-BD\EscolaDeMusica\obj\Debug\EscolaDeMusica.AdicionarProfessor.resources
+C:\Users\Utilizador\Desktop\UNIVERSIDADE\2Semestre\BD\Projeto\2ªEntrega\Projeto-BD\EscolaDeMusica\obj\Debug\EscolaDeMusica.AdicionarProfessor.resources

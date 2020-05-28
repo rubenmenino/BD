@@ -35,10 +35,11 @@
             this.editarRemoverToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aulasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.professorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.adicionarProfessorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.listaDeProfessoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gruposToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.turmaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.direçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.adicionarProfessorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -98,12 +99,27 @@
             // professorToolStripMenuItem
             // 
             this.professorToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.adicionarProfessorToolStripMenuItem});
+            this.adicionarProfessorToolStripMenuItem,
+            this.listaDeProfessoresToolStripMenuItem});
             this.professorToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.professorToolStripMenuItem.Name = "professorToolStripMenuItem";
             this.professorToolStripMenuItem.Size = new System.Drawing.Size(82, 24);
             this.professorToolStripMenuItem.Text = "Professor";
             this.professorToolStripMenuItem.Click += new System.EventHandler(this.professorToolStripMenuItem_Click);
+            // 
+            // adicionarProfessorToolStripMenuItem
+            // 
+            this.adicionarProfessorToolStripMenuItem.Name = "adicionarProfessorToolStripMenuItem";
+            this.adicionarProfessorToolStripMenuItem.Size = new System.Drawing.Size(208, 24);
+            this.adicionarProfessorToolStripMenuItem.Text = "Adicionar Professor";
+            this.adicionarProfessorToolStripMenuItem.Click += new System.EventHandler(this.adicionarProfessorToolStripMenuItem_Click);
+            // 
+            // listaDeProfessoresToolStripMenuItem
+            // 
+            this.listaDeProfessoresToolStripMenuItem.Name = "listaDeProfessoresToolStripMenuItem";
+            this.listaDeProfessoresToolStripMenuItem.Size = new System.Drawing.Size(208, 24);
+            this.listaDeProfessoresToolStripMenuItem.Text = "Lista de Professores";
+            this.listaDeProfessoresToolStripMenuItem.Click += new System.EventHandler(this.listaDeProfessoresToolStripMenuItem_Click);
             // 
             // gruposToolStripMenuItem
             // 
@@ -125,13 +141,6 @@
             this.direçãoToolStripMenuItem.Name = "direçãoToolStripMenuItem";
             this.direçãoToolStripMenuItem.Size = new System.Drawing.Size(73, 24);
             this.direçãoToolStripMenuItem.Text = "Direção";
-            // 
-            // adicionarProfessorToolStripMenuItem
-            // 
-            this.adicionarProfessorToolStripMenuItem.Name = "adicionarProfessorToolStripMenuItem";
-            this.adicionarProfessorToolStripMenuItem.Size = new System.Drawing.Size(207, 24);
-            this.adicionarProfessorToolStripMenuItem.Text = "Adicionar Professor";
-            this.adicionarProfessorToolStripMenuItem.Click += new System.EventHandler(this.adicionarProfessorToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -164,5 +173,6 @@
         private System.Windows.Forms.ToolStripMenuItem turmaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem direçãoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem adicionarProfessorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem listaDeProfessoresToolStripMenuItem;
     }
 }

@@ -25,7 +25,8 @@ DELETE FROM projeto.Funcionario
 INSERT INTO projeto.Funcionario VALUES
 		('1985-11-28', '938180364', 'Branca Barros', 'F', 184164702, 'brancadeneve@gmail.pt', 'Rua da venezuela 44', 600, 'BBarros'),
 		('1987-09-14', '936404711', 'Marina Brum', 'F', 135860709, 'marianbubum@ua.pt', 'Rua da gafanha 3', 600, 'MBrum'),
-		('1987-11-09', '931503621', 'Salomé Delgado', 'F', 145093360, 'salamedechocolate@hotmail.pt', 'Rua da gafanha da nazare 3', 600, 'SDelgado');
+		('1987-11-09', '931503621', 'Salomé Delgado', 'F', 145093360, 'salamedechocolate@hotmail.pt', 'Rua da gafanha da nazare 3', 600, 'SDelgado'
+		);
 		
 DBCC CHECKIDENT([projeto.Funcionario], RESEED, 0)
 
@@ -33,15 +34,17 @@ DBCC CHECKIDENT([projeto.Funcionario], RESEED, 0)
 DELETE FROM projeto.Professor
 
 INSERT INTO projeto.Professor VALUES
-	('1994-05-09', '968413692', 'Sara Correia', 'F', 168387190, 'sarocas@ua.pt', 'Rua dos atletas 1', 600),
-	('1996-05-05', '960053692', 'Joana Matos', 'F', 177730617, 'joaninha335@gmail.pt', 'Rua da escola 64', 600),
-	('1997-07-21', '964382496', 'Juliana Pereira', 'F', 179959476, 'julianaperas@hotmail.pt', 'Rua do nada 1', 600),
-	('1998-06-11', '964781004', 'Rafael Josefina', 'F', 115290540, 'rafaelamulher@outlook.pt', 'Rua Vazia 0', 600),
-	('2000-02-08', '964521446', 'Márcia Joana', 'F', 198674503, 'joaninhamarciana@outlook.pt', 'Rua das nespereiras 69', 600
+	('1994-05-09', '968413692', 'Sara Correia', 'F', 168387190, 'sarocas@ua.pt', 'Rua dos atletas 1', 600, NULL, NULL, NULL ),
+	('1996-05-05', '960053692', 'Joana Matos', 'F', 177730617, 'joaninha335@gmail.pt', 'Rua da escola 64', 600, NULL, NULL, NULL),
+	('1997-07-21', '964382496', 'Juliana Pereira', 'F', 179959476, 'julianaperas@hotmail.pt', 'Rua do nada 1', 600, NULL, NULL, NULL),
+	('1998-06-11', '964781004', 'Rafael Josefina', 'F', 115290540, 'rafaelamulher@outlook.pt', 'Rua Vazia 0', 600, NULL, NULL, NULL),
+	('2000-02-08', '964521446', 'Márcia Joana', 'F', 198674503, 'joaninhamarciana@outlook.pt', 'Rua das nespereiras 69', 600, NULL, NULL, NULL
 	);
 	
-DBCC CHECKIDENT([projeto.Funcionario], RESEED, 0)
+DBCC CHECKIDENT([projeto.Professor], RESEED, 0)
+go
 
+dbcc checkident([projeto.Professor], reseed, 105)
 ---------------------------------------------------------------------------------------
 
 DELETE FROM projeto.Toca1 

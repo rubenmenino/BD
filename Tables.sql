@@ -241,7 +241,7 @@ CREATE TABLE projeto.Tem (
 ---------------------------------------------------------
 
 CREATE TABLE projeto.Professor (
-	PROFESSOR_Codigo	INT IDENTITY(100, 1),
+	PROFESSOR_Codigo	smallint IDENTITY( 100, 1),
 	Data_Nasc			DATE				NOT NULL,
 	Telemovel			VARCHAR(15),
 	Nome				VARCHAR(50)			NOT NULL,
@@ -257,7 +257,9 @@ CREATE TABLE projeto.Professor (
 	PRIMARY KEY(PROFESSOR_Codigo),
 	CHECK(Salario > 350)
 )
-
+go
+select ident_current('projeto.Professor')
+select @@IDENTITY
 
 ---------------------------------------------------------
 ---------------------------------------------------------

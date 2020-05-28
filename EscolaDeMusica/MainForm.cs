@@ -40,5 +40,11 @@ namespace EscolaDeMusica
             AdicionarProfessor addProf = new AdicionarProfessor();
             addProf.Show(this);
         }
+
+        private void listaDeProfessoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+           professoresLista profList = new professoresLista();
+            profList.Show(this);
+        }
     }
 }

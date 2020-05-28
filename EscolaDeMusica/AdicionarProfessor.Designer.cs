@@ -41,7 +41,7 @@
             this.EmailLabel = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.DataLabel = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.MoaradaLabel = new System.Windows.Forms.Label();
             this.InstrumentoLabel = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
@@ -177,12 +177,12 @@
             this.DataLabel.TabIndex = 10;
             this.DataLabel.Text = "Data de Nascimento";
             // 
-            // dateTimePicker1
+            // dateTimePicker2
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(540, 41);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(216, 20);
-            this.dateTimePicker1.TabIndex = 11;
+            this.dateTimePicker2.Location = new System.Drawing.Point(540, 41);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(216, 20);
+            this.dateTimePicker2.TabIndex = 11;
             // 
             // MoaradaLabel
             // 
@@ -232,6 +232,7 @@
             this.AddButton.TabIndex = 17;
             this.AddButton.Text = "Adicionar";
             this.AddButton.UseVisualStyleBackColor = false;
+            this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
             // 
             // CancelButton
             // 
@@ -242,6 +243,7 @@
             this.CancelButton.TabIndex = 18;
             this.CancelButton.Text = "Cancelar";
             this.CancelButton.UseVisualStyleBackColor = false;
+            this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
             // AdicionarProfessor
             // 
@@ -255,7 +257,7 @@
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.InstrumentoLabel);
             this.Controls.Add(this.MoaradaLabel);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.dateTimePicker2);
             this.Controls.Add(this.DataLabel);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.EmailLabel);
@@ -292,7 +294,7 @@
         private System.Windows.Forms.Label EmailLabel;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label DataLabel;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.Label MoaradaLabel;
         private System.Windows.Forms.Label InstrumentoLabel;
         private System.Windows.Forms.TextBox textBox3;

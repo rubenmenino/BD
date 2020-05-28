@@ -111,16 +111,16 @@ namespace EscolaDeMusica
             {
                 if (insertProfessor(dataNascimento, telemovel, nome, sexo, nif, email, morada))
                 {
-                    MessageBox.Show("Novo aluno adicionado", "Adicionar Aluno", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Novo professor adicionado", "Adicionar professor", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    MessageBox.Show("Erro", "Adicionar Aluno", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Erro", "Adicionar professor", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
             {
-                MessageBox.Show("Espaços vazios", "Adicionar Aluno", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Espaços vazios", "Adicionar professor", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
 
         }

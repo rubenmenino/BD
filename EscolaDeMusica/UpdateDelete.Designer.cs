@@ -209,6 +209,7 @@
             this.buttonEditar.TabIndex = 29;
             this.buttonEditar.Text = "Editar";
             this.buttonEditar.UseVisualStyleBackColor = false;
+            this.buttonEditar.Click += new System.EventHandler(this.buttonEditar_Click);
             // 
             // buttonRemover
             // 
@@ -220,6 +221,7 @@
             this.buttonRemover.TabIndex = 30;
             this.buttonRemover.Text = "Remover";
             this.buttonRemover.UseVisualStyleBackColor = false;
+            this.buttonRemover.Click += new System.EventHandler(this.buttonRemover_Click_1);
             // 
             // buttonProcurar
             // 

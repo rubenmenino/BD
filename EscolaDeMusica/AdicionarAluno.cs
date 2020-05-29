@@ -152,15 +152,19 @@ namespace EscolaDeMusica
         }
             
         
-        public bool updateAluno(DateTime dataNascimento, string telemovel, string nome, string sexo, string nif, string email, string morada)
+        public bool updateAluno(int id, DateTime dataNascimento, string telemovel, string nome, string sexo, string nif, string email, string morada)
         {
+            cn = getSGBDConnection();
             // @Data_Nasc, @Telemovel, @Nome, @Sexo, @NIF, @Email, @Morada
             SqlDataAdapter adapter = new SqlDataAdapter();
             DataTable table = new DataTable();
 
-            SqlCommand command = new SqlCommand("UPDATE projeto.Pessoa SET dataNascimento=@Data_Nasc, telemovel=@Telemovel, nome=@Nome, sexo=@Sexo, nif=@NIF, email=@Email, morada=@Morada WHERE nif=@NIF", cn);
+            SqlCommand identitySet = new SqlCommand("SET IDENTITY_INSERT projeto.Aluno ON", cn);
+            SqlCommand command = new SqlCommand("INSERT INTO projeto.Aluno(ALUNO_Codigo, Data_Nasc, Telemovel, Nome, sexo, NIF, Email, Morada, Mensalidade, TURMA_Numero, TURMA_ID) VALUES(@ALUNO_Codigo, @Data_Nasc, @Telemovel, @Nome, @Sexo, @NIF, @Email, @Morada, @Mensalidade, @TURMA_Numero, @TURMA_ID)", cn);
 
-            
+
+
+            command.Parameters.Add("@ALUNO_Codigo", SqlDbType.Int).Value = id;
             command.Parameters.Add("@Data_Nasc", SqlDbType.Date).Value = dataNascimento;
             command.Parameters.Add("@Telemovel", SqlDbType.VarChar).Value = telemovel;
             command.Parameters.Add("@Nome", SqlDbType.VarChar).Value = nome;
@@ -169,9 +173,23 @@ namespace EscolaDeMusica
             command.Parameters.Add("@Email", SqlDbType.VarChar).Value = email;
             command.Parameters.Add("@Morada", SqlDbType.VarChar).Value = morada;
 
+            command.Parameters.Add("@Mensalidade", SqlDbType.Int).Value = 25;
+            command.Parameters.Add("@TURMA_Numero", SqlDbType.Int).Value = 1;
+            command.Parameters.Add("@TURMA_ID", SqlDbType.Int).Value = 1;
+
+            SqlCommand identityDelete = new SqlCommand("DELETE FROM projeto.Aluno WHERE ALUNO_Codigo=@ALUNO_Codigo", cn);
+            identityDelete.Parameters.Add("@ALUNO_Codigo", SqlDbType.Int).Value = id;
+
+
+            //command.Parameters.Add("@ALUNO_Codigo", SqlDbType.Int).Value = ALUNO_Codigo;
+
+            //SqlCommand identityOf = new SqlCommand("SET IDENTITY_INSERT projeto.Aluno OFF", cn);
+
+
             cn.Open();
 
-            if (command.ExecuteNonQuery() == 1)
+
+            if (identitySet.ExecuteNonQuery() == -1 && identityDelete.ExecuteNonQuery() == 1 && command.ExecuteNonQuery() == 1)
             {
                 cn.Close();
                 return true;
@@ -185,12 +203,15 @@ namespace EscolaDeMusica
 
         public bool deleteAluno(int id)
         {
+
+            cn = getSGBDConnection();
+
             SqlDataAdapter adapter = new SqlDataAdapter();
             DataTable table = new DataTable();
 
-            SqlCommand command = new SqlCommand("DELETE FROM projeto.Pessoa WHERE , id=@PESSOA_Codigo", cn);
+            SqlCommand command = new SqlCommand("DELETE FROM projeto.Aluno WHERE ALUNO_Codigo=@ALUNO_Codigo", cn);
 
-            command.Parameters.Add("@PESSOA_Codigo", SqlDbType.Int).Value = id;
+            command.Parameters.Add("@ALUNO_Codigo", SqlDbType.Int).Value = id;
             
 
             cn.Open();

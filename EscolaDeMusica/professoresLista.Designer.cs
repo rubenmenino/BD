@@ -41,6 +41,7 @@
             this.dataGridView1.Size = new System.Drawing.Size(949, 341);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataGridView1.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridiew1_CellMouseDoubleClick);
             // 
             // button1
             // 
@@ -51,6 +52,7 @@
             this.button1.TabIndex = 1;
             this.button1.Text = "Atualizar";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // professoresLista
             // 

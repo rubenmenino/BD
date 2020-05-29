@@ -83,6 +83,84 @@ namespace EscolaDeMusica
 
         }
 
+        public bool updateProfessor(int id, DateTime dataNascimento, string telemovel, string nome, string sexo, string nif, string email, string morada)
+        {
+            cn = getSGBDConnection();
+            // @Data_Nasc, @Telemovel, @Nome, @Sexo, @NIF, @Email, @Morada
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            DataTable table = new DataTable();
+
+            SqlCommand identitySet = new SqlCommand("SET IDENTITY_INSERT projeto.Professor ON", cn);
+            SqlCommand command = new SqlCommand("INSERT INTO projeto.Professor(PROFESSOR_Codigo, Data_Nasc, Telemovel, Nome, Sexo, NIF, Email, Morada, Salario, DISCIPLINA_ID, DIRECAO_Cargo, DIRECAO_Codigo) VALUES(@PROFESSOR_Codigo, @Data_Nasc, @Telemovel, @Nome, @Sexo, @NIF, @Email, @Morada, @Salario, @DISCIPLINA_ID, @DIRECAO_Cargo, @DIRECAO_Codigo)", cn);
+
+
+
+            command.Parameters.Add("@PROFESSOR_Codigo", SqlDbType.Int).Value = id;
+            command.Parameters.Add("@Data_Nasc", SqlDbType.Date).Value = dataNascimento;
+            command.Parameters.Add("@Telemovel", SqlDbType.VarChar).Value = telemovel;
+            command.Parameters.Add("@Nome", SqlDbType.VarChar).Value = nome;
+            command.Parameters.Add("@Sexo", SqlDbType.VarChar).Value = sexo;
+            command.Parameters.Add("@NIF", SqlDbType.Int).Value = nif;
+            command.Parameters.Add("@Email", SqlDbType.VarChar).Value = email;
+            command.Parameters.Add("@Morada", SqlDbType.VarChar).Value = morada;
+
+            command.Parameters.Add("@Salario", SqlDbType.Int).Value = 10000;
+            command.Parameters.Add("@DISCIPLINA_ID", SqlDbType.Int).Value = 1;
+            command.Parameters.Add("@DIRECAO_Cargo", SqlDbType.VarChar).Value = "AtuaMae";
+            command.Parameters.Add("@DIRECAO_Codigo", SqlDbType.Int).Value = 1;
+
+            SqlCommand identityDelete = new SqlCommand("DELETE FROM projeto.Professor WHERE PROFESSOR_Codigo=@PROFESSOR_Codigo", cn);
+            identityDelete.Parameters.Add("@PROFESSOR_Codigo", SqlDbType.Int).Value = id;
+
+
+            //command.Parameters.Add("@ALUNO_Codigo", SqlDbType.Int).Value = ALUNO_Codigo;
+
+            //SqlCommand identityOf = new SqlCommand("SET IDENTITY_INSERT projeto.Aluno OFF", cn);
+
+
+            cn.Open();
+
+
+            if (identitySet.ExecuteNonQuery() == -1 && identityDelete.ExecuteNonQuery() == 1 && command.ExecuteNonQuery() == 1)
+            {
+                cn.Close();
+                return true;
+            }
+            else
+            {
+                cn.Close();
+                return false;
+            }
+        }
+
+        public bool deleteProfessor(int id)
+        {
+
+            cn = getSGBDConnection();
+
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            DataTable table = new DataTable();
+
+            SqlCommand command = new SqlCommand("DELETE FROM projeto.Professor WHERE PROFESSOR_Codigo=@PROFESSOR_Codigo", cn);
+
+            command.Parameters.Add("@PROFESSOR_Codigo", SqlDbType.Int).Value = id;
+
+
+            cn.Open();
+
+            if (command.ExecuteNonQuery() == 1)
+            {
+                cn.Close();
+                return true;
+            }
+            else
+            {
+                cn.Close();
+                return false;
+            }
+        }
+
+
         private void AddButton_Click(object sender, EventArgs e)
         {
             cn = getSGBDConnection();

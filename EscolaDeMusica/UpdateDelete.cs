@@ -40,6 +40,7 @@ namespace EscolaDeMusica
         }
 
         AdicionarAluno aluno = new AdicionarAluno();
+        AdicionarProfessor professor = new AdicionarProfessor();
 
 
 
@@ -126,15 +127,36 @@ namespace EscolaDeMusica
                 MessageBox.Show("Idade tem de ser entre 10 e 100 anos", "Data Inválida", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else if (verif())
+
             {
-                if (aluno.updateAluno(id, dataNascimento, telemovel, nome, sexo, nif, email, morada))
+                // É um aluno
+                if(id < 100)
                 {
-                    MessageBox.Show("Informação do Aluno Atualizada", "Editar Aluno", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (aluno.updateAluno(id, dataNascimento, telemovel, nome, sexo, nif, email, morada))
+                    {
+                        MessageBox.Show("Informação do Aluno Atualizada", "Editar Aluno", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Erro", "Editar Aluno", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
+
+                // É um professor
                 else
                 {
-                    MessageBox.Show("Erro", "Editar Aluno", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    if (professor.updateProfessor(id, dataNascimento, telemovel, nome, sexo, nif, email, morada))
+                    {
+                        MessageBox.Show("Informação do Professor Atualizada", "Editar Professor", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Erro", "Editar Professor", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+
                 }
+                
             }
             else
             {
@@ -146,23 +168,47 @@ namespace EscolaDeMusica
         private void buttonRemover_Click_1(object sender, EventArgs e)
         {
             int id = Convert.ToInt32(textBoxID.Text);
-            if (MessageBox.Show("De certeza que quer eliminar o aluno da base de dados?", "Apagar aluno", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("De certeza que quer eliminar o aluno/professor da base de dados?", "Apagar Aluno/Professor", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                if (aluno.deleteAluno(id))
+                if(id < 100)
                 {
-                    MessageBox.Show("Aluno Apagado", "Apagar aluno", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    textBoxID.Text = "";
-                    textBoxName.Text = "";
-                    textBoxTelemovel.Text = "";
-                    textBoxNIF.Text = "";
-                    textBoxEmail.Text = "";
-                    dateTimePicker1.Value = DateTime.Now;
-                    textBoxMorada.Text = "";
+                    if (aluno.deleteAluno(id))
+                    {
+                        MessageBox.Show("Aluno Apagado", "Apagar aluno", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        textBoxID.Text = "";
+                        textBoxName.Text = "";
+                        textBoxTelemovel.Text = "";
+                        textBoxNIF.Text = "";
+                        textBoxEmail.Text = "";
+                        dateTimePicker1.Value = DateTime.Now;
+                        textBoxMorada.Text = "";
+                    }
+                    else
+                    {
+                        MessageBox.Show("Aluno não Apagado", "Apagar aluno", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
+
                 else
                 {
-                    MessageBox.Show("Aluno não Apagado", "Apagar aluno", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if (professor.deleteProfessor(id))
+                    {
+                        MessageBox.Show("Professor Apagado", "Apagar Professor", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        textBoxID.Text = "";
+                        textBoxName.Text = "";
+                        textBoxTelemovel.Text = "";
+                        textBoxNIF.Text = "";
+                        textBoxEmail.Text = "";
+                        dateTimePicker1.Value = DateTime.Now;
+                        textBoxMorada.Text = "";
+                    }
+                    else
+                    {
+                        MessageBox.Show("Professor não Apagado", "Apagar Professor", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
+
+                
             }
         }
     }

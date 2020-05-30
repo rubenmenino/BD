@@ -103,8 +103,9 @@ namespace EscolaDeMusica
 
             cn = getSGBDConnection();
             SqlDataAdapter adapter = new SqlDataAdapter();
+            SqlDataAdapter adapter1 = new SqlDataAdapter();
             DataTable table2 = new DataTable();
-            DataTable table3 = new DataTable();
+            DataTable table5 = new DataTable();
 
             SqlCommand command = new SqlCommand("SELECT Login.Utilizador FROM projeto.Login WHERE Utilizador = '" + textBox5.Text + "'", cn);
 
@@ -129,13 +130,23 @@ namespace EscolaDeMusica
             if(result == DialogResult.Yes)
             {
                 string mySQl = string.Empty;
+                
+                //mySQl += "INSERT INTO projeto.Login (Utilizador, PasswordHash , Fname, Lname)";
+                //mySQl += "VALUES ('" + textBox5.Text + "','" + textBox4.Text + "','" + textBox1.Text + "','" + textBox2.Text + "')";
 
-                mySQl += "INSERT INTO projeto.Login (Utilizador, PasswordHash , Fname, Lname)";
-                mySQl += "VALUES ('" + textBox5.Text + "','" + textBox4.Text + "','" + textBox1.Text + "','" + textBox2.Text + "')";
+                SqlCommand command5 = new SqlCommand("projeto.adicionarRegisto", cn);
+                command5.CommandType = CommandType.StoredProcedure;
+                command5.Parameters.AddWithValue("@plogin", textBox5.Text);
+                command5.Parameters.AddWithValue("@pPassword", textBox4.Text);
+                command5.Parameters.AddWithValue("@pFirstName", textBox1.Text);
+                command5.Parameters.AddWithValue("@pLastName", textBox2.Text);
+                command5.Parameters.AddWithValue("@responseMessage", textBox6.Text);
 
-                SqlCommand command2 = new SqlCommand(mySQl, cn);
-                adapter.SelectCommand = command2;
-                adapter.Fill(table3);
+
+
+
+                adapter1.SelectCommand = command5;
+                adapter1.Fill(table5);
                 MessageBox.Show("A conta foi guardada.", "C# Register", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 

@@ -57,24 +57,30 @@ namespace EscolaDeMusica
         private void buttonLogin_Click(object sender, EventArgs e)
         {
             cn = getSGBDConnection();
-            SqlDataAdapter adapter = new SqlDataAdapter();
-            DataTable table = new DataTable();
+            SqlDataAdapter adapter5 = new SqlDataAdapter();
+            DataTable table5 = new DataTable();
             
-            SqlCommand command = new SqlCommand("SELECT * FROM projeto.Login WHERE Utilizador=@Utilizador AND PasswordHash=@PasswordHash", cn);
+            SqlCommand command5 = new SqlCommand("projeto.logar", cn);
+            command5.CommandType = CommandType.StoredProcedure;
+            command5.Parameters.AddWithValue("@pLoginName", textBoxUsername.Text);
+            command5.Parameters.AddWithValue("@pPassword", textBoxPassword.Text);
+            command5.Parameters.AddWithValue("@responseMessage", textBox1.Text);
+
             
-            command.Parameters.Add("@Utilizador", SqlDbType.VarChar).Value = textBoxUsername.Text;
-            command.Parameters.Add("@PasswordHash", SqlDbType.VarChar).Value = textBoxPassword.Text;
 
-            adapter.SelectCommand = command;
-            adapter.Fill(table);
 
-            if(table.Rows.Count > 0)
+
+
+            adapter5.SelectCommand = command5;
+            adapter5.Fill(table5);
+
+            if(table5.Rows.Count == 0)
             {
                 this.DialogResult = DialogResult.OK;
             }
             else
             {
-                MessageBox.Show("Invalid Username Or Password", "Login Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+               MessageBox.Show("Invalid Username Or Password", "Login Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

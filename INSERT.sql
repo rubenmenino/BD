@@ -247,9 +247,9 @@ SELECT * FROM projeto.Direcao
 DELETE FROM projeto.Login
 -- Utilizador, PasswordHash
 INSERT INTO projeto.Login VALUES 
-		('rubenmenino', 'ostea'),
-		('paocomatum', 'atumcompao'),
-		('presidentejorge', 'omelhorpresidente'
+		('rubenmenino', 'ostea', null, null),
+		('paocomatum', 'atumcompao', null, null),
+		('presidentejorge', 'omelhorpresidente', null, null
 		);
 		
 

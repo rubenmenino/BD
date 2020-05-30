@@ -155,11 +155,11 @@ CREATE TABLE projeto.Direcao (
 ---------------------------------------------------------
 
 CREATE TABLE projeto.Login (
+	UserID INT IDENTITY(1,1) NOT NULL,
 	Utilizador			VARCHAR(30) NOT NULL,
-	PasswordHash		VARCHAR(30)	NOT NULL,
+	PasswordHash		BINARY(64)	NOT NULL,
 	Fname				VARCHAR(30),
-	Lname				VARCHAR(30),
-	Email				VARCHAR(30),
+	Lname				VARCHAR(30)
 	PRIMARY KEY(Utilizador)
 )
 

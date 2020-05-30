@@ -46,5 +46,10 @@ namespace EscolaDeMusica
            professoresLista profList = new professoresLista();
             profList.Show(this);
         }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

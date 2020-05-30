@@ -77,5 +77,24 @@ namespace EscolaDeMusica
                 MessageBox.Show("Invalid Username Or Password", "Login Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Register_Form register = new Register_Form();
+            register.ShowDialog();
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if(checkBox1.Checked == true)
+            {
+                textBoxPassword.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                textBoxPassword.UseSystemPasswordChar = true;
+            }
+
+        }
     }
 }

@@ -36,6 +36,8 @@
             this.textBoxPassword = new System.Windows.Forms.TextBox();
             this.buttonLogin = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -43,7 +45,7 @@
             // 
             this.pictureBox1.Location = new System.Drawing.Point(12, 12);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(130, 123);
+            this.pictureBox1.Size = new System.Drawing.Size(120, 114);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
@@ -62,7 +64,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(90, 170);
+            this.label2.Location = new System.Drawing.Point(72, 138);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(102, 24);
             this.label2.TabIndex = 2;
@@ -72,7 +74,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(90, 216);
+            this.label3.Location = new System.Drawing.Point(72, 184);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(97, 24);
             this.label3.TabIndex = 3;
@@ -80,17 +82,17 @@
             // 
             // textBoxUsername
             // 
-            this.textBoxUsername.Location = new System.Drawing.Point(198, 175);
+            this.textBoxUsername.Location = new System.Drawing.Point(180, 143);
             this.textBoxUsername.Name = "textBoxUsername";
-            this.textBoxUsername.Size = new System.Drawing.Size(153, 20);
+            this.textBoxUsername.Size = new System.Drawing.Size(247, 20);
             this.textBoxUsername.TabIndex = 4;
             this.textBoxUsername.Text = "rubenmenino";
             // 
             // textBoxPassword
             // 
-            this.textBoxPassword.Location = new System.Drawing.Point(198, 221);
+            this.textBoxPassword.Location = new System.Drawing.Point(180, 189);
             this.textBoxPassword.Name = "textBoxPassword";
-            this.textBoxPassword.Size = new System.Drawing.Size(153, 20);
+            this.textBoxPassword.Size = new System.Drawing.Size(247, 20);
             this.textBoxPassword.TabIndex = 5;
             this.textBoxPassword.Text = "ostea";
             this.textBoxPassword.UseSystemPasswordChar = true;
@@ -99,9 +101,9 @@
             // 
             this.buttonLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.buttonLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonLogin.Location = new System.Drawing.Point(101, 265);
+            this.buttonLogin.Location = new System.Drawing.Point(76, 242);
             this.buttonLogin.Name = "buttonLogin";
-            this.buttonLogin.Size = new System.Drawing.Size(129, 61);
+            this.buttonLogin.Size = new System.Drawing.Size(111, 50);
             this.buttonLogin.TabIndex = 6;
             this.buttonLogin.Text = "Login";
             this.buttonLogin.UseVisualStyleBackColor = false;
@@ -111,13 +113,35 @@
             // 
             this.buttonCancel.BackColor = System.Drawing.Color.Red;
             this.buttonCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCancel.Location = new System.Drawing.Point(263, 265);
+            this.buttonCancel.Location = new System.Drawing.Point(247, 242);
             this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(129, 61);
+            this.buttonCancel.Size = new System.Drawing.Size(115, 51);
             this.buttonCancel.TabIndex = 7;
             this.buttonCancel.Text = "Exit";
             this.buttonCancel.UseVisualStyleBackColor = false;
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(201, 307);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(236, 13);
+            this.linkLabel1.TabIndex = 8;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Dont\'t have an account yet? Create an account.";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(344, 215);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(102, 17);
+            this.checkBox1.TabIndex = 9;
+            this.checkBox1.Text = "Show Password";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // Login_Form
             // 
@@ -125,6 +149,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(458, 338);
+            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonLogin);
             this.Controls.Add(this.textBoxPassword);
@@ -134,6 +160,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.Name = "Login_Form";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login_Form";
             this.Load += new System.EventHandler(this.Login_Form_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -152,5 +179,7 @@
         private System.Windows.Forms.TextBox textBoxPassword;
         private System.Windows.Forms.Button buttonLogin;
         private System.Windows.Forms.Button buttonCancel;
+        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }

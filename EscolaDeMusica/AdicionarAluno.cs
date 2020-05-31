@@ -152,7 +152,7 @@ namespace EscolaDeMusica
         }
             
         
-        public bool updateAluno(int id, DateTime dataNascimento, string telemovel, string nome, string sexo, string nif, string email, string morada)
+        public bool updateAluno(int id, DateTime dataNascimento, string telemovel, string nome, string sexo, string nif, string email, string morada, string instrumento)
         {
             cn = getSGBDConnection();
             // @Data_Nasc, @Telemovel, @Nome, @Sexo, @NIF, @Email, @Morada
@@ -185,8 +185,17 @@ namespace EscolaDeMusica
 
             //SqlCommand identityOf = new SqlCommand("SET IDENTITY_INSERT projeto.Aluno OFF", cn);
 
+            SqlCommand addInstrumento = new SqlCommand("INSERT INTO projeto.Toca1(INSTRUMENTO_Nome, ALUNO_Codigo) VALUES(@INSTRUMENTO,  @CODIGO)", cn);
+            addInstrumento.Parameters.Add("@INSTRUMENTO", SqlDbType.VarChar).Value = instrumento;
+            addInstrumento.Parameters.Add("@CODIGO", SqlDbType.Int).Value = id;
+
+            
+
 
             cn.Open();
+
+            int aux = addInstrumento.ExecuteNonQuery();
+            MessageBox.Show(" " + aux);
 
 
             if (identitySet.ExecuteNonQuery() == -1 && identityDelete.ExecuteNonQuery() == 1 && command.ExecuteNonQuery() == 1)

@@ -49,6 +49,8 @@
             this.buttonProcurar = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.textBoxID = new System.Windows.Forms.TextBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -95,7 +97,7 @@
             // 
             // textBoxMorada
             // 
-            this.textBoxMorada.Location = new System.Drawing.Point(567, 165);
+            this.textBoxMorada.Location = new System.Drawing.Point(567, 157);
             this.textBoxMorada.Multiline = true;
             this.textBoxMorada.Name = "textBoxMorada";
             this.textBoxMorada.Size = new System.Drawing.Size(207, 66);
@@ -110,14 +112,14 @@
             // 
             // textBoxNIF
             // 
-            this.textBoxNIF.Location = new System.Drawing.Point(101, 246);
+            this.textBoxNIF.Location = new System.Drawing.Point(101, 267);
             this.textBoxNIF.Name = "textBoxNIF";
             this.textBoxNIF.Size = new System.Drawing.Size(207, 20);
             this.textBoxNIF.TabIndex = 24;
             // 
             // textBoxTelemovel
             // 
-            this.textBoxTelemovel.Location = new System.Drawing.Point(101, 205);
+            this.textBoxTelemovel.Location = new System.Drawing.Point(101, 218);
             this.textBoxTelemovel.Name = "textBoxTelemovel";
             this.textBoxTelemovel.Size = new System.Drawing.Size(207, 20);
             this.textBoxTelemovel.TabIndex = 23;
@@ -133,7 +135,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(481, 164);
+            this.label7.Location = new System.Drawing.Point(478, 156);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(63, 18);
             this.label7.TabIndex = 21;
@@ -153,7 +155,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(15, 248);
+            this.label5.Location = new System.Drawing.Point(15, 266);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(35, 18);
             this.label5.TabIndex = 19;
@@ -163,7 +165,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(15, 205);
+            this.label4.Location = new System.Drawing.Point(15, 217);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(80, 18);
             this.label4.TabIndex = 18;
@@ -203,7 +205,7 @@
             // 
             this.buttonEditar.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.buttonEditar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonEditar.Location = new System.Drawing.Point(181, 311);
+            this.buttonEditar.Location = new System.Drawing.Point(143, 363);
             this.buttonEditar.Name = "buttonEditar";
             this.buttonEditar.Size = new System.Drawing.Size(165, 63);
             this.buttonEditar.TabIndex = 29;
@@ -215,7 +217,7 @@
             // 
             this.buttonRemover.BackColor = System.Drawing.Color.Red;
             this.buttonRemover.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonRemover.Location = new System.Drawing.Point(430, 311);
+            this.buttonRemover.Location = new System.Drawing.Point(412, 363);
             this.buttonRemover.Name = "buttonRemover";
             this.buttonRemover.Size = new System.Drawing.Size(165, 63);
             this.buttonRemover.TabIndex = 30;
@@ -252,12 +254,32 @@
             this.textBoxID.TabIndex = 33;
             this.textBoxID.TextChanged += new System.EventHandler(this.textBoxID_TextChanged);
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(567, 263);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(207, 21);
+            this.comboBox1.TabIndex = 34;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(479, 266);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(62, 13);
+            this.label9.TabIndex = 35;
+            this.label9.Text = "Instrumento";
+            // 
             // UpdateDelete
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.textBoxID);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.buttonProcurar);
@@ -310,5 +332,7 @@
         public System.Windows.Forms.TextBox textBoxTelemovel;
         public System.Windows.Forms.TextBox textBoxName;
         public System.Windows.Forms.TextBox textBoxID;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label9;
     }
 }

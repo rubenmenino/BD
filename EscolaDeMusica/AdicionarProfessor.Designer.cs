@@ -43,9 +43,7 @@
             this.DataLabel = new System.Windows.Forms.Label();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.MoaradaLabel = new System.Windows.Forms.Label();
-            this.InstrumentoLabel = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.AddButton = new System.Windows.Forms.Button();
             this.CancelButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
@@ -171,7 +169,7 @@
             // DataLabel
             // 
             this.DataLabel.AutoSize = true;
-            this.DataLabel.Location = new System.Drawing.Point(413, 42);
+            this.DataLabel.Location = new System.Drawing.Point(26, 283);
             this.DataLabel.Name = "DataLabel";
             this.DataLabel.Size = new System.Drawing.Size(104, 13);
             this.DataLabel.TabIndex = 10;
@@ -179,7 +177,7 @@
             // 
             // dateTimePicker2
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(540, 41);
+            this.dateTimePicker2.Location = new System.Drawing.Point(142, 283);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(216, 20);
             this.dateTimePicker2.TabIndex = 11;
@@ -187,46 +185,25 @@
             // MoaradaLabel
             // 
             this.MoaradaLabel.AutoSize = true;
-            this.MoaradaLabel.Location = new System.Drawing.Point(413, 92);
+            this.MoaradaLabel.Location = new System.Drawing.Point(26, 353);
             this.MoaradaLabel.Name = "MoaradaLabel";
             this.MoaradaLabel.Size = new System.Drawing.Size(46, 13);
             this.MoaradaLabel.TabIndex = 12;
             this.MoaradaLabel.Text = "Morada:";
             this.MoaradaLabel.Click += new System.EventHandler(this.label1_Click_4);
             // 
-            // InstrumentoLabel
-            // 
-            this.InstrumentoLabel.AutoSize = true;
-            this.InstrumentoLabel.Location = new System.Drawing.Point(26, 288);
-            this.InstrumentoLabel.Name = "InstrumentoLabel";
-            this.InstrumentoLabel.Size = new System.Drawing.Size(68, 13);
-            this.InstrumentoLabel.TabIndex = 14;
-            this.InstrumentoLabel.Text = "Instrumento: ";
-            this.InstrumentoLabel.Click += new System.EventHandler(this.InstrumentoLabel_Click);
-            // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(540, 89);
+            this.textBox3.Location = new System.Drawing.Point(142, 350);
             this.textBox3.Multiline = true;
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(216, 55);
             this.textBox3.TabIndex = 15;
             // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.SkyBlue;
-            this.button1.Location = new System.Drawing.Point(142, 265);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(216, 59);
-            this.button1.TabIndex = 16;
-            this.button1.Text = "Escoher Instrumento";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // AddButton
             // 
             this.AddButton.BackColor = System.Drawing.Color.LawnGreen;
-            this.AddButton.Location = new System.Drawing.Point(649, 276);
+            this.AddButton.Location = new System.Drawing.Point(240, 429);
             this.AddButton.Name = "AddButton";
             this.AddButton.Size = new System.Drawing.Size(118, 48);
             this.AddButton.TabIndex = 17;
@@ -237,7 +214,7 @@
             // CancelButton
             // 
             this.CancelButton.BackColor = System.Drawing.Color.OrangeRed;
-            this.CancelButton.Location = new System.Drawing.Point(502, 276);
+            this.CancelButton.Location = new System.Drawing.Point(29, 429);
             this.CancelButton.Name = "CancelButton";
             this.CancelButton.Size = new System.Drawing.Size(123, 48);
             this.CancelButton.TabIndex = 18;
@@ -250,12 +227,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.BurlyWood;
-            this.ClientSize = new System.Drawing.Size(797, 378);
+            this.ClientSize = new System.Drawing.Size(411, 528);
             this.Controls.Add(this.CancelButton);
             this.Controls.Add(this.AddButton);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.InstrumentoLabel);
             this.Controls.Add(this.MoaradaLabel);
             this.Controls.Add(this.dateTimePicker2);
             this.Controls.Add(this.DataLabel);
@@ -296,9 +271,7 @@
         private System.Windows.Forms.Label DataLabel;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.Label MoaradaLabel;
-        private System.Windows.Forms.Label InstrumentoLabel;
         private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button AddButton;
         private System.Windows.Forms.Button CancelButton;
     }

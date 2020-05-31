@@ -17,11 +17,11 @@ namespace EscolaDeMusica
         public AdicionarProfessor()
         {
             InitializeComponent();
+            
         }
 
+
         private SqlConnection cn;
-        private int currentPessoa;
-        private bool adding;
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -83,7 +83,7 @@ namespace EscolaDeMusica
 
         }
 
-        public bool updateProfessor(int id, DateTime dataNascimento, string telemovel, string nome, string sexo, string nif, string email, string morada)
+        public bool updateProfessor(int id, DateTime dataNascimento, string telemovel, string nome, string sexo, string nif, string email, string morada, string instrumento)
         {
             cn = getSGBDConnection();
             // @Data_Nasc, @Telemovel, @Nome, @Sexo, @NIF, @Email, @Morada
@@ -117,9 +117,15 @@ namespace EscolaDeMusica
 
             //SqlCommand identityOf = new SqlCommand("SET IDENTITY_INSERT projeto.Aluno OFF", cn);
 
+            SqlCommand addInstrumento = new SqlCommand("INSERT INTO projeto.Toca2(INSTRUMENTO_Nome, PROFESSOR_Codigo) VALUES(@INSTRUMENTO,  @CODIGO)", cn);
+            addInstrumento.Parameters.Add("@INSTRUMENTO", SqlDbType.VarChar).Value = instrumento;
+            addInstrumento.Parameters.Add("@CODIGO", SqlDbType.Int).Value = id;
+
 
             cn.Open();
 
+            int aux = addInstrumento.ExecuteNonQuery();
+            MessageBox.Show(" " + aux);
 
             if (identitySet.ExecuteNonQuery() == -1 && identityDelete.ExecuteNonQuery() == 1 && command.ExecuteNonQuery() == 1)
             {
@@ -246,6 +252,7 @@ namespace EscolaDeMusica
 
             SqlCommand command = new SqlCommand("INSERT projeto.Professor (Data_Nasc, Telemovel, Nome, Sexo, NIF, Email, Morada, Salario) " + "VALUES (@Data_Nasc, @Telemovel, @Nome, @Sexo, @NIF, @Email, @Morada, @Salario); SELECT SCOPE_IDENTITY();", cn);
 
+            SqlCommand insertInstrumento = new SqlCommand("INSERT projeto.Toca2 (INSTRUMENTO_nome, PROFESSOR_Codigo) VALUES(@INSTRUMENTO_nome, @PROFESSOR_Codigo)", cn);
 
 
             // @Data_Nasc, @Telemovel, @Nome, @Sexo, @NIF, @Email, @Morada

@@ -1,0 +1,24 @@
+-- TRIGGERS 
+
+
+GO
+CREATE Trigger removePrevious ON projeto.Toca2
+	AFTER INSERT, UPDATE
+		AS
+		BEGIN
+			DECLARE @INSTRUMENTO_Nome AS VARCHAR(30);
+			DECLARE @PROFESSOR_Codigo AS INT;
+			
+			SELECT @INSTRUMENTO_Nome, @PROFESSOR_Codigo FROM inserted;
+
+
+			if @PROFESSOR_Codigo IN (SELECT PROFESSOR_Codigo FROM projeto.Toca2 WHERE PROFESSOR_Codigo = @PROFESSOR_Codigo)
+			BEGIN
+				DELETE FROM projeto.Toca2  WHERE PROFESSOR_Codigo = @PROFESSOR_Codigo
+			END
+
+
+			INSERT INTO projeto.Toca2(INSTRUMENTO_Nome, PROFESSOR_Codigo) VALUES(@INSTRUMENTO_Nome, @PROFESSOR_Codigo)
+		END
+
+GO

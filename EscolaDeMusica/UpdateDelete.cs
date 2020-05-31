@@ -16,12 +16,27 @@ namespace EscolaDeMusica
         public UpdateDelete()
         {
             InitializeComponent();
+
+
+            initInstrumentos();
+        }
+
+        private void initInstrumentos()
+        {
+            comboBox1.Items.Add("Violino");
+            comboBox1.Items.Add("Violoncelo");
+            comboBox1.Items.Add("Guitarra");
+            comboBox1.Items.Add("Bateria");
+            comboBox1.Items.Add("Canto");
+            comboBox1.Items.Add("Piano");
+            comboBox1.Items.Add("Saxofone");
+            comboBox1.Items.Add("Flauta Transversal");
+            comboBox1.Items.Add("Clarinete");
+            comboBox1.Items.Add("Fagote");
         }
 
         private SqlConnection cn;
-        private int currentPessoa;
-        private bool adding;
-
+        private int id;
         private SqlConnection getSGBDConnection()
         {
             return new SqlConnection("Data Source = tcp:mednat.ieeta.pt\\SQLSERVER, 8101; Initial Catalog = p7g2; uid = p7g2;" + "password = BaseDeDados123");
@@ -38,6 +53,8 @@ namespace EscolaDeMusica
 
             return cn.State == ConnectionState.Open;
         }
+
+
 
         AdicionarAluno aluno = new AdicionarAluno();
         AdicionarProfessor professor = new AdicionarProfessor();
@@ -105,7 +122,9 @@ namespace EscolaDeMusica
         {
             cn = getSGBDConnection();
             //Data_Nasc, Telemovel, Nome, Sexo, NIF, Email, Morada
-            int id = Convert.ToInt32(textBoxID.Text);
+            id = Convert.ToInt32(textBoxID.Text);
+            string instrumento = comboBox1.SelectedItem.ToString();
+
             DateTime dataNascimento = dateTimePicker1.Value;
             string telemovel = textBoxTelemovel.Text;
             string nome = textBoxName.Text;
@@ -132,7 +151,7 @@ namespace EscolaDeMusica
                 // É um aluno
                 if(id < 100)
                 {
-                    if (aluno.updateAluno(id, dataNascimento, telemovel, nome, sexo, nif, email, morada))
+                    if (aluno.updateAluno(id, dataNascimento, telemovel, nome, sexo, nif, email, morada, instrumento))
                     {
                         MessageBox.Show("Informação do Aluno Atualizada", "Editar Aluno", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
@@ -146,7 +165,7 @@ namespace EscolaDeMusica
                 else
                 {
 
-                    if (professor.updateProfessor(id, dataNascimento, telemovel, nome, sexo, nif, email, morada))
+                    if (professor.updateProfessor(id, dataNascimento, telemovel, nome, sexo, nif, email, morada, instrumento))
                     {
                         MessageBox.Show("Informação do Professor Atualizada", "Editar Professor", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
@@ -167,7 +186,7 @@ namespace EscolaDeMusica
 
         private void buttonRemover_Click_1(object sender, EventArgs e)
         {
-            int id = Convert.ToInt32(textBoxID.Text);
+            id = Convert.ToInt32(textBoxID.Text);
             if (MessageBox.Show("De certeza que quer eliminar o aluno/professor da base de dados?", "Apagar Aluno/Professor", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 if(id < 100)
@@ -210,6 +229,14 @@ namespace EscolaDeMusica
 
                 
             }
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+         
+            
+           
+
         }
     }
 }

@@ -31,3 +31,5 @@ C:\Users\Utilizador\Desktop\UNIVERSIDADE\2Semestre\BD\Projeto\2ªEntrega\Projeto
 C:\Users\SAUDADE\Desktop\BD\Projeto-BD\EscolaDeMusica\obj\Debug\EscolaDeMusica.professoresLista.resources
 C:\Users\Utilizador\Desktop\UNIVERSIDADE\2Semestre\BD\Projeto\2ªEntrega\Projeto-BD\EscolaDeMusica\obj\Debug\EscolaDeMusica.Register_Form.resources
 C:\Users\SAUDADE\Desktop\BD\Projeto-BD\EscolaDeMusica\obj\Debug\EscolaDeMusica.Register_Form.resources
+C:\Users\SAUDADE\Desktop\BD\Projeto-BD\EscolaDeMusica\obj\Debug\EscolaDeMusica.Event.resources
+C:\Users\SAUDADE\Desktop\BD\Projeto-BD\EscolaDeMusica\obj\Debug\EscolaDeMusica.ListEvent.resources

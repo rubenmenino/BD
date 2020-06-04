@@ -51,5 +51,23 @@ namespace EscolaDeMusica
         {
 
         }
+
+        private void eventoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+
+        }
+
+        private void adicionarEventoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Event evento = new Event();
+            evento.Show(this);
+        }
+
+        private void listaDeEventosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ListEvent listaEventos = new ListEvent();
+            listaEventos.Show(this);
+        }
     }
 }

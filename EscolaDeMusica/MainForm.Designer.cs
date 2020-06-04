@@ -40,6 +40,9 @@
             this.gruposToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.turmaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.direçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.eventoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.adicionarEventoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.listaDeEventosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -51,7 +54,8 @@
             this.professorToolStripMenuItem,
             this.gruposToolStripMenuItem,
             this.turmaToolStripMenuItem,
-            this.direçãoToolStripMenuItem});
+            this.direçãoToolStripMenuItem,
+            this.eventoToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(842, 28);
@@ -142,6 +146,30 @@
             this.direçãoToolStripMenuItem.Size = new System.Drawing.Size(73, 24);
             this.direçãoToolStripMenuItem.Text = "Direção";
             // 
+            // eventoToolStripMenuItem
+            // 
+            this.eventoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.adicionarEventoToolStripMenuItem,
+            this.listaDeEventosToolStripMenuItem});
+            this.eventoToolStripMenuItem.Name = "eventoToolStripMenuItem";
+            this.eventoToolStripMenuItem.Size = new System.Drawing.Size(55, 24);
+            this.eventoToolStripMenuItem.Text = "Evento";
+            this.eventoToolStripMenuItem.Click += new System.EventHandler(this.eventoToolStripMenuItem_Click);
+            // 
+            // adicionarEventoToolStripMenuItem
+            // 
+            this.adicionarEventoToolStripMenuItem.Name = "adicionarEventoToolStripMenuItem";
+            this.adicionarEventoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.adicionarEventoToolStripMenuItem.Text = "Adicionar Evento";
+            this.adicionarEventoToolStripMenuItem.Click += new System.EventHandler(this.adicionarEventoToolStripMenuItem_Click);
+            // 
+            // listaDeEventosToolStripMenuItem
+            // 
+            this.listaDeEventosToolStripMenuItem.Name = "listaDeEventosToolStripMenuItem";
+            this.listaDeEventosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.listaDeEventosToolStripMenuItem.Text = "Lista de Eventos";
+            this.listaDeEventosToolStripMenuItem.Click += new System.EventHandler(this.listaDeEventosToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -175,5 +203,8 @@
         private System.Windows.Forms.ToolStripMenuItem direçãoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem adicionarProfessorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem listaDeProfessoresToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem eventoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem adicionarEventoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem listaDeEventosToolStripMenuItem;
     }
 }

@@ -22,6 +22,7 @@ DROP TABLE IF EXISTS projeto.Evento
 DROP TABLE IF EXISTS projeto.Aluno
 DROP TABLE IF EXISTS projeto.Professor
 
+SELECT * FROM projeto.Toca2
 
 ---------------------------------------------------------
 ---------------------------------------------------------
@@ -120,7 +121,7 @@ CREATE TABLE projeto.Turma (
 
 CREATE TABLE projeto.Pertence1 (
 	CODIGO_Funcionario	INT,
-	Ano					DATE,
+	Ano					INT,
 	Cargo				VARCHAR(30),
 	PRIMARY KEY(Cargo, CODIGO_Funcionario)
 	
@@ -133,7 +134,7 @@ CREATE TABLE projeto.Pertence1 (
 
 CREATE TABLE projeto.Pertence2 (
 	CODIGO_Professor	INT,
-	Ano					DATE,
+	Ano					INT,
 	Cargo				VARCHAR(30),
 	PRIMARY KEY(Cargo, CODIGO_Professor)
 
@@ -170,7 +171,7 @@ CREATE TABLE projeto.Login (
 ---------------------------------------------------------
 
 CREATE TABLE projeto.Request (
-	Ano					DATE,	
+	Ano					INT,	
 	PROFESSOR_Codigo	INT,
 	Aceite				BIT NOT NULL ,
 	PRIMARY KEY(Aceite, Ano, PROFESSOR_Codigo)
@@ -179,17 +180,19 @@ CREATE TABLE projeto.Request (
 
 ---------------------------------------------------------
 ---------------------------------------------------------
-
+SELECT * FROM projeto.Evento
 CREATE TABLE projeto.Evento (
 	EVENTO_Nome			VARCHAR(30),
 	Local				VARCHAR(30)	NOT NULL,
-	EVENTO_Data			DATE,
+	EVENTO_inicio			DATE,
+	EVENTO_fim				DATE,
 	Caracteristica		VARCHAR(30) NOT NULL,
-	EVENTO_Ano			DATE,
+	EVENTO_Ano			INT,
 	Aceite				BIT			NOT NULL,
 	PRIMARY KEY(EVENTO_Nome)
 
 )
+
 
 
 ---------------------------------------------------------
@@ -262,7 +265,7 @@ CREATE TABLE projeto.Professor (
 )
 go
 select ident_current('projeto.Professor')
-select @@IDENTITY
+
 
 ---------------------------------------------------------
 ---------------------------------------------------------

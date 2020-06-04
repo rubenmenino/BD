@@ -16,6 +16,7 @@ namespace EscolaDeMusica
         public ListEvent()
         {
             InitializeComponent();
+            
         }
 
         private SqlConnection cn;

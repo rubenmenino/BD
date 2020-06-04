@@ -37,6 +37,11 @@ AS
 	RETURN
 GO
 
+CREATE PROCEDURE projeto.MostrarEventos
+AS
+	SELECT * FROM projeto.Evento
+	RETURN
+GO
 -----------------------------
 -----------------------------
 -- o procedimento armazenado pega a senha como parâmetro de entrada

@@ -246,13 +246,13 @@ namespace EscolaDeMusica
 
         public bool insertProfessor(DateTime dataNascimento, string telemovel, string nome, string sexo, string nif, string email, string morada)
         {
-            //cn = getSGBDConnection();
+            cn = getSGBDConnection();
             SqlDataAdapter adapter = new SqlDataAdapter();
             DataTable table = new DataTable();
 
-            SqlCommand command = new SqlCommand("INSERT projeto.Professor (Data_Nasc, Telemovel, Nome, Sexo, NIF, Email, Morada, Salario) " + "VALUES (@Data_Nasc, @Telemovel, @Nome, @Sexo, @NIF, @Email, @Morada, @Salario); SELECT SCOPE_IDENTITY();", cn);
+            //SqlCommand identitySet = new SqlCommand("SET IDENTITY_INSERT projeto.Professor ON", cn);
+            SqlCommand command = new SqlCommand("INSERT INTO projeto.Professor(Data_Nasc, Telemovel, Nome, Sexo, NIF, Email, Morada, Salario, DISCIPLINA_ID, DIRECAO_Cargo, DIRECAO_Codigo) VALUES(@Data_Nasc, @Telemovel, @Nome, @Sexo, @NIF, @Email, @Morada, @Salario, @DISCIPLINA_ID, @DIRECAO_Cargo, @DIRECAO_Codigo); SELECT SCOPE_IDENTITY();", cn);
 
-            SqlCommand insertInstrumento = new SqlCommand("INSERT projeto.Toca2 (INSTRUMENTO_nome, PROFESSOR_Codigo) VALUES(@INSTRUMENTO_nome, @PROFESSOR_Codigo)", cn);
 
 
             // @Data_Nasc, @Telemovel, @Nome, @Sexo, @NIF, @Email, @Morada
@@ -266,8 +266,14 @@ namespace EscolaDeMusica
             command.Parameters.Add("@Salario", SqlDbType.Int).Value = 600;
 
 
+            command.Parameters.Add("@DISCIPLINA_ID", SqlDbType.Int).Value = 1;
+            command.Parameters.Add("@DIRECAO_Cargo", SqlDbType.VarChar).Value = "AtuaMae";
+            command.Parameters.Add("@DIRECAO_Codigo", SqlDbType.Int).Value = 1;
 
             cn.Open();
+
+
+            //identitySet.ExecuteNonQuery();
 
             if (command.ExecuteNonQuery() == 1)
             {

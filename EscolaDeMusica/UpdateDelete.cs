@@ -141,6 +141,7 @@ namespace EscolaDeMusica
             int born_year = dateTimePicker1.Value.Year;
             int this_yea = DateTime.Now.Year;
 
+
             if (((this_yea - born_year) < 10) || ((this_yea - born_year > 100)))
             {
                 MessageBox.Show("Idade tem de ser entre 10 e 100 anos", "Data Inválida", MessageBoxButtons.OK, MessageBoxIcon.Error);

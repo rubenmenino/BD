@@ -293,7 +293,7 @@ GO
 
 
 DROP PROC projeto.updateProfessor
-CREATE PROC projeto.updateProfessor (@PROFESSOR_Codigo INT, @Data_Nasc DATE, @Telemovel VARCHAR(15), @Nome VARCHAR(50), @Sexo VARCHAR(20), @NIF INT, @Email VARCHAR(100), @Morada VARCHAR(200), @Salario INT, @DISCIPLINA_ID INT, @inst VARCHAR(30))AS	SET IDENTITY_INSERT projeto.Professor ON 	DELETE FROM projeto.Professor WHERE PROFESSOR_Codigo=@PROFESSOR_Codigo	INSERT INTO projeto.Professor (Data_Nasc, Telemovel, Nome, Sexo, NIF, Email, Morada, Salario, DISCIPLINA_ID) VALUES (@Data_Nasc, @Telemovel, @Nome, @Sexo, @NIF, @Email, @Morada, @Salario, @DISCIPLINA_ID);	EXEC projeto.addInstrumento @id=@PROFESSOR_Codigo, @instrumento=@inst
+CREATE PROC projeto.updateProfessor (@PROFESSOR_Codigo INT, @Data_Nasc DATE, @Telemovel VARCHAR(15), @Nome VARCHAR(50), @Sexo VARCHAR(20), @NIF INT, @Email VARCHAR(100), @Morada VARCHAR(200), @Salario INT, @DISCIPLINA_ID INT, @inst VARCHAR(30))AS	SET @PROFESSOR_Codigo = SCOPE_IDENTITY();	-- SET IDENTITY_INSERT projeto.Professor ON 	DELETE FROM projeto.Professor WHERE PROFESSOR_Codigo=@PROFESSOR_Codigo	INSERT INTO projeto.Professor (Data_Nasc, Telemovel, Nome, Sexo, NIF, Email, Morada, Salario, DISCIPLINA_ID) VALUES (@Data_Nasc, @Telemovel, @Nome, @Sexo, @NIF, @Email, @Morada, @Salario, @DISCIPLINA_ID);	EXEC projeto.addInstrumento @id=@PROFESSOR_Codigo, @instrumento=@inst
 GO
 
 

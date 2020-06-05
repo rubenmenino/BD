@@ -1,9 +1,9 @@
 -- view para mostrar a lista de alunos
-
+DROP VIEW listaAlunos
 CREATE VIEW listaAlunos AS
 SELECT projeto.Aluno.*, projeto.Toca.INTRUMENTO_Nome
 FROM projeto.Aluno
-INNER JOIN projeto.Toca
+left JOIN projeto.Toca
 ON Toca.ALUNO_Codigo = ALUNO.ALUNO_Codigo
 
 
@@ -15,8 +15,9 @@ drop view listaProfessores
 CREATE VIEW listaProfessores AS
 SELECT projeto.Professor.*, projeto.Toca.INTRUMENTO_Nome
 FROM projeto.Professor
-INNER JOIN projeto.Toca
+left JOIN projeto.Toca
 ON Toca.PROFESSOR_Codigo = Professor.PROFESSOR_Codigo
+
 
 
 

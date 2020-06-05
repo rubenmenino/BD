@@ -250,6 +250,7 @@
             // 
             this.textBoxID.Location = new System.Drawing.Point(101, 32);
             this.textBoxID.Name = "textBoxID";
+            this.textBoxID.ReadOnly = true;
             this.textBoxID.Size = new System.Drawing.Size(207, 20);
             this.textBoxID.TabIndex = 33;
             this.textBoxID.TextChanged += new System.EventHandler(this.textBoxID_TextChanged);

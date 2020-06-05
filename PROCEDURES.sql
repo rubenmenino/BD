@@ -23,25 +23,7 @@
 --	SET @id = SCOPE_IDENTITY();  
 --END
 
-go 
 
-CREATE PROCEDURE projeto.MostrarAlunos
-AS
-	SELECT * FROM projeto.Aluno
-	RETURN
-GO
-
-CREATE PROCEDURE projeto.MostrarProfessores
-AS
-	SELECT * FROM projeto.Professor
-	RETURN
-GO
-
-CREATE PROCEDURE projeto.MostrarEventos
-AS
-	SELECT * FROM projeto.Evento
-	RETURN
-GO
 -----------------------------
 -----------------------------
 -- o procedimento armazenado pega a senha como parâmetro de entrada
@@ -209,7 +191,7 @@ SELECT	@responseMessage as N'@responseMessage'
 -- stored procedure para criar um aluno
 
 CREATE PROC projeto.criarAluno (@Data_Nasc DATE, @Telemovel VARCHAR(15), @Nome VARCHAR(50), @Sexo VARCHAR(20), @NIF INT, @Email VARCHAR(100), @Morada VARCHAR(200), @Mensalidade INT, @TURMA_Numero INT, @TURMA_ID INT)
-AS
+AS	
 	INSERT INTO projeto.Aluno (Data_Nasc, Telemovel, Nome, Sexo, NIF, Email, Morada, Mensalidade, TURMA_Numero, TURMA_ID) VALUES (@Data_Nasc, @Telemovel, @Nome, @Sexo, @NIF, @Email, @Morada, @Mensalidade, @TURMA_Numero, @TURMA_ID);
 GO
 
@@ -221,8 +203,99 @@ DROP PROC projeto.criarProfessor
 CREATE PROC projeto.criarProfessor (@Data_Nasc DATE, @Telemovel VARCHAR(15), @Nome VARCHAR(50), @Sexo VARCHAR(20), @NIF INT, @Email VARCHAR(100), @Morada VARCHAR(200), @Salario INT, @DISCIPLINA_ID INT)
 AS
 	INSERT INTO projeto.Professor (Data_Nasc, Telemovel, Nome, Sexo, NIF, Email, Morada, Salario, DISCIPLINA_ID) VALUES (@Data_Nasc, @Telemovel, @Nome, @Sexo, @NIF, @Email, @Morada, @Salario, @DISCIPLINA_ID);
+	
+	DECLARE @id SMALLINT
+	SET @id = (SELECT MAX(projeto.Professor.PROFESSOR_Codigo) FROM projeto.Professor)
+	
+	IF EXISTS(
+		SELECT * FROM projeto.Toca
+		WHERE @id = PROFESSOR_Codigo
+	)
+	BEGIN
+		DELETE FROM projeto.Toca
+		WHERE PROFESSOR_Codigo = @id
+	END
+
+
+	INSERT INTO projeto.TOCA(INTRUMENTO_Nome, ALUNO_Codigo, PROFESSOR_Codigo) VALUES(null, null, @id)
+
 GO
 
+
 -------------------------------------
 -------------------------------------
 
+
+--stored procedure para adicionar turma ao aluno
+DROP PROC projeto.adicionarAlunoTurma
+CREATE PROC projeto.adicionarAlunoTurma(@id INT, @TURMA_ID INT, @TURMA_Numero INT)
+AS
+	IF @id IS NOT NULL
+	BEGIN
+		IF EXISTS(
+			SELECT * FROM projeto.PertenceTurma
+			WHERE @id = CODIGO_Aluno AND @TURMA_Numero = TURMA_Numero
+		)
+		BEGIN
+			print 'Aluno já pertence à turma!'
+			RETURN
+		END
+
+		INSERT INTO projeto.PertenceTurma (CODIGO_Aluno, TURMA_Numero) VALUES (@id, @TURMA_Numero)
+
+	END
+
+GO
+
+--stored procedure para adicionar intrumento ao aluno
+DROP PROC projeto.addInstrumento
+CREATE PROC projeto.addInstrumento(@id INT, @instrumento VARCHAR(30))
+AS	
+
+	IF @id IS NOT NULL
+	BEGIN
+
+		IF @id > 99
+		BEGIN 
+
+			IF  EXISTS (
+				SELECT * FROM projeto.Toca
+				WHERE PROFESSOR_Codigo = @id AND INTRUMENTO_Nome = NULL
+			)
+			BEGIN	
+				DELETE FROM projeto.Toca
+				WHERE PROFESSOR_Codigo = @id
+					
+			END
+			
+			INSERT INTO projeto.Toca (INTRUMENTO_Nome, ALUNO_Codigo, PROFESSOR_Codigo) VALUES(@instrumento, NULL, @id)
+		END
+
+		IF @id < 100
+		BEGIN
+			
+			IF  EXISTS (
+				SELECT * FROM projeto.Toca
+				WHERE ALUNO_Codigo = @id AND INTRUMENTO_Nome = @instrumento
+			)
+			BEGIN
+				PRINT'Aluno já toca o instrumento selecinado!'
+				RETURN 
+			END
+			INSERT INTO projeto.Toca (INTRUMENTO_Nome, ALUNO_Codigo, PROFESSOR_Codigo) VALUES(@instrumento, @id, NULL)	
+		END
+
+			
+	END
+GO
+
+
+
+
+DROP PROC projeto.updateProfessor
+CREATE PROC projeto.updateProfessor (@PROFESSOR_Codigo INT, @Data_Nasc DATE, @Telemovel VARCHAR(15), @Nome VARCHAR(50), @Sexo VARCHAR(20), @NIF INT, @Email VARCHAR(100), @Morada VARCHAR(200), @Salario INT, @DISCIPLINA_ID INT, @inst VARCHAR(30))AS	SET IDENTITY_INSERT projeto.Professor ON 	DELETE FROM projeto.Professor WHERE PROFESSOR_Codigo=@PROFESSOR_Codigo	INSERT INTO projeto.Professor (Data_Nasc, Telemovel, Nome, Sexo, NIF, Email, Morada, Salario, DISCIPLINA_ID) VALUES (@Data_Nasc, @Telemovel, @Nome, @Sexo, @NIF, @Email, @Morada, @Salario, @DISCIPLINA_ID);	EXEC projeto.addInstrumento @id=@PROFESSOR_Codigo, @instrumento=@inst
+GO
+
+
+
+--stored procedure para ver o numero de alunos por professor e retornar 

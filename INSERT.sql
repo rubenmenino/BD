@@ -72,7 +72,6 @@ INSERT INTO projeto.Disciplina VALUES
 		(3, 'Coro', 6
 		);
 		
-
 ------------------------------------------------------------------------------------------------
 
 DELETE FROM projeto.Participa

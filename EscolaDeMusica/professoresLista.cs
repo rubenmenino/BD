@@ -45,8 +45,8 @@ namespace EscolaDeMusica
         private void professoresLista_Load(object sender, EventArgs e)
         {
             cn = getSGBDConnection();
-            SqlCommand command = new SqlCommand("projeto.MostrarProfessores", cn);
-            command.CommandType = CommandType.StoredProcedure;
+            SqlCommand command = new SqlCommand("SELECT * FROM listaProfessores", cn);
+            //command.CommandType = CommandType.StoredProcedure;
             dataGridView1.ReadOnly = true;
             dataGridView1.RowTemplate.Height = 30;
             dataGridView1.DataSource = add.getProfessores(command);
@@ -79,8 +79,8 @@ namespace EscolaDeMusica
         private void button1_Click(object sender, EventArgs e)
         {
             cn = getSGBDConnection();
-            SqlCommand command = new SqlCommand("projeto.MostrarProfessores", cn);
-            command.CommandType = CommandType.StoredProcedure;
+            SqlCommand command = new SqlCommand("SELECT * FROM listaProfessores", cn);
+            //command.CommandType = CommandType.StoredProcedure;
             dataGridView1.ReadOnly = true;
             dataGridView1.RowTemplate.Height = 30;
             dataGridView1.DataSource = add.getProfessores(command);

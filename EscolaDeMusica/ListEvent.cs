@@ -42,8 +42,8 @@ namespace EscolaDeMusica
         private void eventos_lista_load(object sender, EventArgs e)
         {
             cn = getSGBDConnection();
-            SqlCommand command = new SqlCommand("projeto.MostrarEventos", cn);
-            command.CommandType = CommandType.StoredProcedure;
+            SqlCommand command = new SqlCommand("SELECT * FROM listaEventos", cn);
+            //command.CommandType = CommandType.StoredProcedure;
             dataGridView1.ReadOnly = true;
             dataGridView1.RowTemplate.Height = 30;
             dataGridView1.DataSource = x.getEvent(command);
@@ -77,8 +77,8 @@ namespace EscolaDeMusica
         private void button1_Click(object sender, EventArgs e)
         {
             cn = getSGBDConnection();
-            SqlCommand command = new SqlCommand("projeto.MostrarEventos", cn);
-            command.CommandType = CommandType.StoredProcedure;
+            SqlCommand command = new SqlCommand("SELECT * FROM listaEventos", cn);
+            //command.CommandType = CommandType.StoredProcedure;
             dataGridView1.ReadOnly = true;
             dataGridView1.RowTemplate.Height = 30;
             dataGridView1.DataSource = x.getEvent(command);

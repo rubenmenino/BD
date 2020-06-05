@@ -90,11 +90,9 @@ namespace EscolaDeMusica
             SqlDataAdapter adapter = new SqlDataAdapter();
             DataTable table = new DataTable();
 
-            SqlCommand identitySet = new SqlCommand("SET IDENTITY_INSERT projeto.Professor ON", cn);
-            SqlCommand command = new SqlCommand("INSERT INTO projeto.Professor(PROFESSOR_Codigo, Data_Nasc, Telemovel, Nome, Sexo, NIF, Email, Morada, Salario, DISCIPLINA_ID) VALUES(@PROFESSOR_Codigo, @Data_Nasc, @Telemovel, @Nome, @Sexo, @NIF, @Email, @Morada, @Salario, @DISCIPLINA_ID)", cn);
+            SqlCommand command = new SqlCommand("projeto.updateProfessor @PROFESSOR_Codigo, @Data_Nasc, @Telemovel, @Nome, @Sexo, @NIF, @Email, @Morada, @Salario, @DISCIPLINA_ID, @inst", cn);
 
-
-
+            
             command.Parameters.Add("@PROFESSOR_Codigo", SqlDbType.Int).Value = id;
             command.Parameters.Add("@Data_Nasc", SqlDbType.Date).Value = dataNascimento;
             command.Parameters.Add("@Telemovel", SqlDbType.VarChar).Value = telemovel;
@@ -108,34 +106,17 @@ namespace EscolaDeMusica
             command.Parameters.Add("@DISCIPLINA_ID", SqlDbType.Int).Value = 1;
 
 
-            SqlCommand identityDelete = new SqlCommand("DELETE FROM projeto.Professor WHERE PROFESSOR_Codigo=@PROFESSOR_Codigo", cn);
-            identityDelete.Parameters.Add("@PROFESSOR_Codigo", SqlDbType.Int).Value = id;
+            command.Parameters.Add("@inst", SqlDbType.VarChar).Value = instrumento;
 
 
-            //command.Parameters.Add("@ALUNO_Codigo", SqlDbType.Int).Value = ALUNO_Codigo;
-
-            //SqlCommand identityOf = new SqlCommand("SET IDENTITY_INSERT projeto.Aluno OFF", cn);
-
-            SqlCommand addInstrumento = new SqlCommand("INSERT INTO projeto.Toca(INTRUMENTO_Nome, ALUNO_Codigo, PROFESSOR_Codigo) VALUES(@INSTRUMENTO, @ALUNO_Codigo, @CODIGO)", cn);
-            addInstrumento.Parameters.Add("@INSTRUMENTO", SqlDbType.VarChar).Value = instrumento;
-            addInstrumento.Parameters.Add("@CODIGO", SqlDbType.Int).Value = id;
-            addInstrumento.Parameters.Add("@ALUNO_Codigo", SqlDbType.Int).Value = 99999;
 
             cn.Open();
 
-            int aux = addInstrumento.ExecuteNonQuery();
-            MessageBox.Show(" " + aux);
 
-            if (identitySet.ExecuteNonQuery() == -1 && identityDelete.ExecuteNonQuery() == 1 && command.ExecuteNonQuery() == 1)
-            {
-                cn.Close();
-                return true;
-            }
-            else
-            {
-                cn.Close();
-                return false;
-            }
+            command.ExecuteNonQuery();
+
+            cn.Close();
+            return true;
         }
 
         public bool deleteProfessor(int id)
@@ -151,18 +132,15 @@ namespace EscolaDeMusica
             command.Parameters.Add("@PROFESSOR_Codigo", SqlDbType.Int).Value = id;
 
 
+
             cn.Open();
 
-            if (command.ExecuteNonQuery() == 1)
-            {
-                cn.Close();
-                return true;
-            }
-            else
-            {
-                cn.Close();
-                return false;
-            }
+
+
+            command.ExecuteNonQuery();
+
+            cn.Close();
+            return true;
         }
 
 
@@ -271,18 +249,13 @@ namespace EscolaDeMusica
             cn.Open();
 
 
-            //identitySet.ExecuteNonQuery();
 
-            if (command.ExecuteNonQuery() == 1)
-            {
-                cn.Close();
-                return true;
-            }
-            else
-            {
-                cn.Close();
-                return false;
-            }
+            command.ExecuteNonQuery();
+         
+            cn.Close();
+            return true;
+            
+           
         }
 
         public DataTable getProfessores(SqlCommand command)

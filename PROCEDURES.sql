@@ -189,7 +189,7 @@ SELECT	@responseMessage as N'@responseMessage'
 -------------------------------------
 
 -- stored procedure para criar um aluno
-
+DROP PROC projeto.criarAluno
 CREATE PROC projeto.criarAluno (@Data_Nasc DATE, @Telemovel VARCHAR(15), @Nome VARCHAR(50), @Sexo VARCHAR(20), @NIF INT, @Email VARCHAR(100), @Morada VARCHAR(200), @Mensalidade INT, @TURMA_Numero INT, @TURMA_ID INT)
 AS	
 	INSERT INTO projeto.Aluno (Data_Nasc, Telemovel, Nome, Sexo, NIF, Email, Morada, Mensalidade, TURMA_Numero, TURMA_ID) VALUES (@Data_Nasc, @Telemovel, @Nome, @Sexo, @NIF, @Email, @Morada, @Mensalidade, @TURMA_Numero, @TURMA_ID);
@@ -220,6 +220,7 @@ AS
 	INSERT INTO projeto.TOCA(INTRUMENTO_Nome, ALUNO_Codigo, PROFESSOR_Codigo) VALUES(null, null, @id)
 
 GO
+
 
 
 -------------------------------------
@@ -257,18 +258,15 @@ AS
 
 		IF @id > 99
 		BEGIN 
-
-			IF  EXISTS (
-				SELECT * FROM projeto.Toca
-				WHERE PROFESSOR_Codigo = @id AND INTRUMENTO_Nome = NULL
-			)
-			BEGIN	
-				DELETE FROM projeto.Toca
-				WHERE PROFESSOR_Codigo = @id
-					
+			IF EXISTS (SELECT * FROM projeto.Toca
+			   WHERE INTRUMENTO_Nome = @instrumento)
+			BEGIN
+				RETURN -1
 			END
-			
-			INSERT INTO projeto.Toca (INTRUMENTO_Nome, ALUNO_Codigo, PROFESSOR_Codigo) VALUES(@instrumento, NULL, @id)
+
+			UPDATE projeto.Toca 
+			SET INTRUMENTO_Nome = @instrumento
+			WHERE PROFESSOR_Codigo = @id
 		END
 
 		IF @id < 100
@@ -282,6 +280,7 @@ AS
 				PRINT'Aluno já toca o instrumento selecinado!'
 				RETURN 
 			END
+
 			INSERT INTO projeto.Toca (INTRUMENTO_Nome, ALUNO_Codigo, PROFESSOR_Codigo) VALUES(@instrumento, @id, NULL)	
 		END
 
@@ -291,10 +290,19 @@ GO
 
 
 
-
+-- procedure para dar update ao professor
 DROP PROC projeto.updateProfessor
-CREATE PROC projeto.updateProfessor (@PROFESSOR_Codigo INT, @Data_Nasc DATE, @Telemovel VARCHAR(15), @Nome VARCHAR(50), @Sexo VARCHAR(20), @NIF INT, @Email VARCHAR(100), @Morada VARCHAR(200), @Salario INT, @DISCIPLINA_ID INT, @inst VARCHAR(30))AS	SET @PROFESSOR_Codigo = SCOPE_IDENTITY();	-- SET IDENTITY_INSERT projeto.Professor ON 	DELETE FROM projeto.Professor WHERE PROFESSOR_Codigo=@PROFESSOR_Codigo	INSERT INTO projeto.Professor (Data_Nasc, Telemovel, Nome, Sexo, NIF, Email, Morada, Salario, DISCIPLINA_ID) VALUES (@Data_Nasc, @Telemovel, @Nome, @Sexo, @NIF, @Email, @Morada, @Salario, @DISCIPLINA_ID);	EXEC projeto.addInstrumento @id=@PROFESSOR_Codigo, @instrumento=@inst
+CREATE PROC projeto.updateProfessor (@PROFESSOR_Codigo INT, @Data_Nasc DATE, @Telemovel VARCHAR(15), @Nome VARCHAR(50), @Sexo VARCHAR(20), @NIF INT, @Email VARCHAR(100), @Morada VARCHAR(200), @Salario INT, @DISCIPLINA_ID INT, @inst VARCHAR(30))
+AS
+	
+
+	UPDATE projeto.Professor 
+	SET Data_Nasc = @Data_Nasc, Telemovel = @Telemovel, Nome = @Nome, Sexo = @Sexo, NIF = @NIF, Email = @Email, Morada = @Morada, Salario = @Salario
+	WHERE PROFESSOR_Codigo = @PROFESSOR_Codigo
+
+	EXEC projeto.addInstrumento @id=@PROFESSOR_Codigo, @instrumento=@inst
 GO
+
 
 
 

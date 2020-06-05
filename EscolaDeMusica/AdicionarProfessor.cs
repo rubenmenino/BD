@@ -107,13 +107,17 @@ namespace EscolaDeMusica
 
 
             command.Parameters.Add("@inst", SqlDbType.VarChar).Value = instrumento;
+            
+            
+            
 
 
 
             cn.Open();
 
+            int i = command.ExecuteNonQuery();
 
-            command.ExecuteNonQuery();
+            MessageBox.Show("" + i , "sdsd", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             cn.Close();
             return true;

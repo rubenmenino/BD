@@ -124,12 +124,13 @@
             // 
             // Event_add
             // 
-            this.Event_add.Location = new System.Drawing.Point(602, 67);
+            this.Event_add.BackColor = System.Drawing.Color.Red;
+            this.Event_add.Location = new System.Drawing.Point(612, 70);
             this.Event_add.Name = "Event_add";
-            this.Event_add.Size = new System.Drawing.Size(75, 23);
+            this.Event_add.Size = new System.Drawing.Size(150, 98);
             this.Event_add.TabIndex = 10;
             this.Event_add.Text = "Adicionar";
-            this.Event_add.UseVisualStyleBackColor = true;
+            this.Event_add.UseVisualStyleBackColor = false;
             this.Event_add.Click += new System.EventHandler(this.Event_add_Click);
             // 
             // Event
@@ -163,11 +164,11 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.Button Event_add;
+        public System.Windows.Forms.TextBox textBox1;
+        public System.Windows.Forms.TextBox textBox2;
+        public System.Windows.Forms.TextBox textBox3;
+        public System.Windows.Forms.DateTimePicker dateTimePicker1;
+        public System.Windows.Forms.DateTimePicker dateTimePicker2;
     }
 }

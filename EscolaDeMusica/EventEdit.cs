@@ -16,5 +16,15 @@ namespace EscolaDeMusica
         {
             InitializeComponent();
         }
+
+        private void EventEdit_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        public void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

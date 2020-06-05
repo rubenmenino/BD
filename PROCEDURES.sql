@@ -141,7 +141,7 @@ go
 -----------------------------------
 
 
--- DROP PROCEDURE projeto.logar
+DROP PROCEDURE projeto.logar
 CREATE PROCEDURE projeto.logar
     @pLoginName NVARCHAR(254),
     @pPassword NVARCHAR(50),

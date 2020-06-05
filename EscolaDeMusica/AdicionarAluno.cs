@@ -106,11 +106,11 @@ namespace EscolaDeMusica
 
         public bool insertStudent(DateTime dataNascimento, string telemovel, string nome, string sexo, string nif, string email, string morada)
         {
-            //cn = getSGBDConnection();
+            cn = getSGBDConnection();
             SqlDataAdapter adapter = new SqlDataAdapter();
             DataTable table = new DataTable();
 
-            SqlCommand command = new SqlCommand("INSERT projeto.Aluno (Data_Nasc, Telemovel, Nome, Sexo, NIF, Email, Morada, Mensalidade) " + "VALUES (@Data_Nasc, @Telemovel, @Nome, @Sexo, @NIF, @Email, @Morada, @Mensalidade); SELECT SCOPE_IDENTITY();", cn);
+            SqlCommand command = new SqlCommand("INSERT projeto.Aluno (Data_Nasc, Telemovel, Nome, Sexo, NIF, Email, Morada, Mensalidade, TURMA_Numero, TURMA_ID) " + "VALUES (@Data_Nasc, @Telemovel, @Nome, @Sexo, @NIF, @Email, @Morada, @Mensalidade, @TURMA_Numero, @TURMA_ID); SELECT SCOPE_IDENTITY();", cn);
 
 
 
@@ -124,7 +124,9 @@ namespace EscolaDeMusica
             command.Parameters.Add("@Morada", SqlDbType.VarChar).Value = morada;
             command.Parameters.Add("@Mensalidade", SqlDbType.Int).Value = 25;
 
-            
+            command.Parameters.Add("@TURMA_Numero", SqlDbType.Int).Value = 1;
+            command.Parameters.Add("@TURMA_ID", SqlDbType.Int).Value = 1;
+
 
             cn.Open();
 
@@ -185,11 +187,11 @@ namespace EscolaDeMusica
 
             //SqlCommand identityOf = new SqlCommand("SET IDENTITY_INSERT projeto.Aluno OFF", cn);
 
-            SqlCommand addInstrumento = new SqlCommand("INSERT INTO projeto.Toca1(INSTRUMENTO_Nome, ALUNO_Codigo) VALUES(@INSTRUMENTO,  @CODIGO)", cn);
+            SqlCommand addInstrumento = new SqlCommand("INSERT INTO projeto.Toca(INTRUMENTO_Nome, ALUNO_Codigo, PROFESSOR_Codigo) VALUES(@INSTRUMENTO,  @CODIGO, @CODIGO_Prof)", cn);
             addInstrumento.Parameters.Add("@INSTRUMENTO", SqlDbType.VarChar).Value = instrumento;
             addInstrumento.Parameters.Add("@CODIGO", SqlDbType.Int).Value = id;
+            addInstrumento.Parameters.Add("@CODIGO_Prof", SqlDbType.Int).Value = null;
 
-            
 
 
             cn.Open();

@@ -110,8 +110,8 @@ namespace EscolaDeMusica
             SqlDataAdapter adapter = new SqlDataAdapter();
             DataTable table = new DataTable();
 
-            SqlCommand command = new SqlCommand("INSERT projeto.Aluno (Data_Nasc, Telemovel, Nome, Sexo, NIF, Email, Morada, Mensalidade, TURMA_Numero, TURMA_ID) " + "VALUES (@Data_Nasc, @Telemovel, @Nome, @Sexo, @NIF, @Email, @Morada, @Mensalidade, @TURMA_Numero, @TURMA_ID); SELECT SCOPE_IDENTITY();", cn);
-
+            SqlCommand command = new SqlCommand("projeto.criarAluno", cn);
+            command.CommandType = CommandType.StoredProcedure;
 
 
             // @Data_Nasc, @Telemovel, @Nome, @Sexo, @NIF, @Email, @Morada
@@ -190,7 +190,7 @@ namespace EscolaDeMusica
             SqlCommand addInstrumento = new SqlCommand("INSERT INTO projeto.Toca(INTRUMENTO_Nome, ALUNO_Codigo, PROFESSOR_Codigo) VALUES(@INSTRUMENTO,  @CODIGO, @CODIGO_Prof)", cn);
             addInstrumento.Parameters.Add("@INSTRUMENTO", SqlDbType.VarChar).Value = instrumento;
             addInstrumento.Parameters.Add("@CODIGO", SqlDbType.Int).Value = id;
-            addInstrumento.Parameters.Add("@CODIGO_Prof", SqlDbType.Int).Value = null;
+            addInstrumento.Parameters.Add("@CODIGO_Prof", SqlDbType.Int).Value = 1;
 
 
 

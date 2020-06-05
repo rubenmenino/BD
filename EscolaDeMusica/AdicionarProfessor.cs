@@ -250,7 +250,8 @@ namespace EscolaDeMusica
             DataTable table = new DataTable();
 
             //SqlCommand identitySet = new SqlCommand("SET IDENTITY_INSERT projeto.Professor ON", cn);
-            SqlCommand command = new SqlCommand("INSERT INTO projeto.Professor(Data_Nasc, Telemovel, Nome, Sexo, NIF, Email, Morada, Salario, DISCIPLINA_ID) VALUES(@Data_Nasc, @Telemovel, @Nome, @Sexo, @NIF, @Email, @Morada, @Salario, @DISCIPLINA_ID); SELECT SCOPE_IDENTITY();", cn);
+            SqlCommand command = new SqlCommand("projeto.criarProfessor", cn);
+            command.CommandType = CommandType.StoredProcedure;
 
 
 

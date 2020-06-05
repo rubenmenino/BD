@@ -201,6 +201,7 @@ ALTER TABLE projeto.Turma ADD FOREIGN KEY(DISCILINA_ID) REFERENCES projeto.Disci
 ALTER TABLE projeto.Tem ADD FOREIGN KEY(ALUNO_Codigo) REFERENCES projeto.Aluno(ALUNO_Codigo)
 ALTER TABLE projeto.Tem ADD FOREIGN KEY(PROFESSOR_Codigo) REFERENCES projeto.Professor(PROFESSOR_Codigo)
 ALTER TABLE projeto.PertenceTurma ADD FOREIGN KEY(CODIGO_Aluno) REFERENCES projeto.Aluno(ALUNO_Codigo)
+ALTER TABLE projeto.Evento ADD FOREIGN KEY(Aceite) REFERENCES projeto.Request(Aceite)
 
 
 

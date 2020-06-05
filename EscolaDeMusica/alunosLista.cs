@@ -70,8 +70,8 @@ namespace EscolaDeMusica
         private void Atualizar_Click(object sender, EventArgs e)
         {
             cn = getSGBDConnection();
-            SqlCommand command = new SqlCommand("projeto.MostrarAlunos", cn);
-            command.CommandType = CommandType.StoredProcedure;
+            SqlCommand command = new SqlCommand("SELECT * FROM listaAlunos", cn);
+            
             dataGridView1.ReadOnly = true;
             dataGridView1.RowTemplate.Height = 30;
             dataGridView1.DataSource = x.getAlunos(command);

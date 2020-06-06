@@ -39,8 +39,14 @@ GO
 
 
 
-
+DROP VIEW listaEventos
 CREATE VIEW listaEventos
 AS
-	SELECT projeto.Evento.* FROM projeto.Evento
+	SELECT projeto.Evento.*, projeto.Request.PROFESSOR_Codigo 
+	FROM projeto.Evento
+	INNER JOIN projeto.Request
+	ON Evento.EVENTO_Nome = Request.EVENTO_Nome_rq
 GO
+
+
+-------------------------------------------------- instrumentos professoresdrop view projeto.profInstCREATE VIEW projeto.profInst ASSELECT projeto.Professor.PROFESSOR_Codigo, projeto.Toca.INTRUMENTO_NomeFROM projeto.Professorinner JOIN projeto.TocaON Toca.PROFESSOR_Codigo = Professor.PROFESSOR_Codigo-- instrumentos alunosdrop view projeto.alunInstCREATE VIEW projeto.alunInst ASSELECT projeto.Aluno.ALUNO_Codigo, projeto.Toca.INTRUMENTO_NomeFROM projeto.Alunoinner JOIN projeto.TocaON Toca.ALUNO_Codigo = Aluno.ALUNO_Codigo

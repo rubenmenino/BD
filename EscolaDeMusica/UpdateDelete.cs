@@ -135,6 +135,7 @@ namespace EscolaDeMusica
                 string email = textBoxEmail.Text;
                 string morada = textBoxMorada.Text;
 
+
                 if (radioButtonFeminino.Checked)
                 {
                     sexo = "Feminino";
@@ -201,11 +202,13 @@ namespace EscolaDeMusica
             try
             {
                 id = Convert.ToInt32(textBoxID.Text);
+                string instrumento = comboBox1.SelectedItem.ToString();
+
                 if (MessageBox.Show("De certeza que quer eliminar o aluno/professor da base de dados?", "Apagar Aluno/Professor", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     if (id < 100)
                     {
-                        if (aluno.deleteAluno(id))
+                        if (aluno.deleteAluno(id, instrumento))
                         {
                             MessageBox.Show("Aluno Apagado", "Apagar aluno", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             textBoxID.Text = "";

@@ -117,8 +117,9 @@ CREATE TABLE projeto.Login (
 CREATE TABLE projeto.Request (
 	Ano					INT,	
 	PROFESSOR_Codigo	SMALLINT,
-	Aceite				BIT NOT NULL ,
-	PRIMARY KEY(PROFESSOR_Codigo)
+	Aceitar				BIT				NOT NULL ,
+	EVENTO_Nome_rq			VARCHAR(30)		NOT NULL ,
+	PRIMARY KEY(EVENTO_Nome_rq)
 )
 
 
@@ -201,7 +202,7 @@ ALTER TABLE projeto.Turma ADD FOREIGN KEY(DISCILINA_ID) REFERENCES projeto.Disci
 ALTER TABLE projeto.Tem ADD FOREIGN KEY(ALUNO_Codigo) REFERENCES projeto.Aluno(ALUNO_Codigo)
 ALTER TABLE projeto.Tem ADD FOREIGN KEY(PROFESSOR_Codigo) REFERENCES projeto.Professor(PROFESSOR_Codigo)
 ALTER TABLE projeto.PertenceTurma ADD FOREIGN KEY(CODIGO_Aluno) REFERENCES projeto.Aluno(ALUNO_Codigo)
-ALTER TABLE projeto.Evento ADD FOREIGN KEY(Aceite) REFERENCES projeto.Request(Aceite)
+
 
 
 

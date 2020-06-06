@@ -69,8 +69,19 @@ namespace EscolaDeMusica
 
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {   
+        {
 
+            EventEdit updelete = new EventEdit();
+
+            updelete.textBox1.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            updelete.textBox2.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+            updelete.dateTimePicker1.Value = (DateTime)dataGridView1.CurrentRow.Cells[2].Value;
+            updelete.dateTimePicker2.Value = (DateTime)dataGridView1.CurrentRow.Cells[3].Value;
+
+            updelete.textBox3.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
+            //sexo
+
+            updelete.Show();
 
         }
 

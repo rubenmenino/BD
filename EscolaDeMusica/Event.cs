@@ -14,6 +14,7 @@ namespace EscolaDeMusica
     public partial class Event : Form
     {
         private SqlConnection cn;
+
         public Event()
         {
             InitializeComponent();
@@ -67,20 +68,21 @@ namespace EscolaDeMusica
             int ano = dateTimePicker2.Value.Year;
             bool accept = false;
 
+            int  id = Convert.ToInt32(textBox4.Text);
+
 
             SqlDataAdapter adaptar = new SqlDataAdapter();
             DataTable table = new DataTable();
 
-            SqlCommand command = new SqlCommand("INSERT INTO projeto.Evento(EVENTO_Nome, Local, EVENTO_inicio, EVENTO_fim, Caracteristica, EVENTO_Ano, Aceite) VALUES(@EVENTO_NOME, @Local, @Data_inicio, @Data_fim, @Caracteristica, @Evento_Ano, @Aceite)", cn);
+            SqlCommand command = new SqlCommand("projeto.criarEvento @id, @EVENTO_Nome, @Local, @Data_inicio, @Data_fim, @Caracteristica, @EVENTO_Ano", cn);
 
-
+            command.Parameters.Add("@id", SqlDbType.Int).Value = id;
             command.Parameters.Add("@EVENTO_Nome", SqlDbType.VarChar).Value = nome;
             command.Parameters.Add("@Local", SqlDbType.VarChar).Value = local;
             command.Parameters.Add("@Data_inicio", SqlDbType.Date).Value = init;
             command.Parameters.Add("@Data_fim", SqlDbType.Date).Value = end;
             command.Parameters.Add("@Caracteristica", SqlDbType.VarChar).Value = ctr;
             command.Parameters.Add("@EVENTO_Ano", SqlDbType.Int).Value = ano;
-            command.Parameters.Add("@Aceite", SqlDbType.Bit).Value = 0;
 
             cn.Open();
 
@@ -89,8 +91,35 @@ namespace EscolaDeMusica
 
             cn.Close();
 
+        }
 
 
+        public bool editarEvento(int id, string nome, string local, DateTime inicio, DateTime fim, string caract, bool Aceitar)
+        {
+
+            cn = getSGBDConnection();
+
+            SqlDataAdapter adaptar = new SqlDataAdapter();
+            DataTable table = new DataTable();
+
+            SqlCommand command = new SqlCommand("projeto.updateEvento @id, @EVENTO_Nome, @Local, @Data_inicio, @Data_fim, @Caracteristica, @EVENTO_Ano, @Aceite", cn);
+            command.Parameters.Add("@id", SqlDbType.Int).Value = id;
+            command.Parameters.Add("@EVENTO_Nome", SqlDbType.VarChar).Value = nome;
+            command.Parameters.Add("@Local", SqlDbType.VarChar).Value = local;
+            command.Parameters.Add("@Data_inicio", SqlDbType.Date).Value = inicio;
+            command.Parameters.Add("@Data_fim", SqlDbType.Date).Value = fim;
+            command.Parameters.Add("@Caracteristica", SqlDbType.VarChar).Value = caract;
+            command.Parameters.Add("@EVENTO_Ano", SqlDbType.Int).Value = id;
+
+            command.Parameters.Add("@Aceite", SqlDbType.Bit).Value = Aceitar ? 1: 0;
+
+            cn.Open();
+
+            command.ExecuteNonQuery();
+
+
+            cn.Close();
+            return true;
         }
     }
 }

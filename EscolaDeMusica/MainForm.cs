@@ -60,6 +60,7 @@ namespace EscolaDeMusica
 
         private void adicionarEventoToolStripMenuItem_Click(object sender, EventArgs e)
         {
+
             Event evento = new Event();
             evento.Show(this);
         }

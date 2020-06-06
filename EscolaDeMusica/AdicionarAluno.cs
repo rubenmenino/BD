@@ -195,7 +195,7 @@ namespace EscolaDeMusica
             return true;
         }
 
-        public bool deleteAluno(int id)
+        public bool deleteAluno(int id, string instrumento)
         {
 
             cn = getSGBDConnection();
@@ -203,10 +203,11 @@ namespace EscolaDeMusica
             SqlDataAdapter adapter = new SqlDataAdapter();
             DataTable table = new DataTable();
 
-            SqlCommand command = new SqlCommand("DELETE FROM projeto.Aluno WHERE ALUNO_Codigo=@ALUNO_Codigo", cn);
+            SqlCommand command = new SqlCommand("projeto.deleteAluno @ALUNO_Codigo, @instrumento", cn);
 
             command.Parameters.Add("@ALUNO_Codigo", SqlDbType.Int).Value = id;
-            
+            command.Parameters.Add("@instrumento", SqlDbType.VarChar).Value = instrumento;
+
 
             cn.Open();
 

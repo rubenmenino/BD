@@ -69,5 +69,11 @@ namespace EscolaDeMusica
             ListEvent listaEventos = new ListEvent();
             listaEventos.Show(this);
         }
+
+        private void editarRemoverToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UpdateDelete updel = new UpdateDelete();
+            updel.Show(this);
+        }
     }
 }

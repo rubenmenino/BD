@@ -21,7 +21,7 @@ DROP TABLE IF EXISTS projeto.Professor
 
 DROP TABLE projeto.Toca
 CREATE TABLE projeto.Toca(
-	INTRUMENTO_Nome VARCHAR(30)		,
+	INTRUMENTO_Nome VARCHAR(30)     ,
 	ALUNO_Codigo		INT			,
 	PROFESSOR_Codigo	SMALLINT	,
 )

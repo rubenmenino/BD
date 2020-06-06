@@ -259,10 +259,10 @@ AS
 		IF @id > 99
 		BEGIN 
 			IF EXISTS (SELECT * FROM projeto.Toca
-			   WHERE INTRUMENTO_Nome = @instrumento)
-			BEGIN
-				RETURN -1
-			END
+				WHERE INTRUMENTO_Nome = @instrumento)
+				BEGIN
+					RETURN -1
+				END
 
 			UPDATE projeto.Toca 
 			SET INTRUMENTO_Nome = @instrumento
@@ -290,6 +290,7 @@ GO
 
 
 
+
 -- procedure para dar update ao professor
 DROP PROC projeto.updateProfessor
 CREATE PROC projeto.updateProfessor (@PROFESSOR_Codigo INT, @Data_Nasc DATE, @Telemovel VARCHAR(15), @Nome VARCHAR(50), @Sexo VARCHAR(20), @NIF INT, @Email VARCHAR(100), @Morada VARCHAR(200), @Salario INT, @DISCIPLINA_ID INT, @inst VARCHAR(30))
@@ -304,6 +305,22 @@ AS
 GO
 
 
+-- procedure para dar update ao aluno
+DROP PROC projeto.updateAluno
+CREATE PROC projeto.updateAluno (@ALUNO_Codigo INT, @Data_Nasc DATE, @Telemovel VARCHAR(15), @Nome VARCHAR(50), @Sexo VARCHAR(20), @NIF INT, @Email VARCHAR(100), @Morada VARCHAR(200), @Mensalidade INT, @TURMA_Numero INT, @TURMA_ID INT, @inst VARCHAR(30))
+AS
+	
+
+	UPDATE projeto.Aluno
+	SET Data_Nasc = @Data_Nasc, Telemovel = @Telemovel, Nome = @Nome, Sexo = @Sexo, NIF = @NIF, Email = @Email, Morada = @Morada, Mensalidade = @Mensalidade, TURMA_Numero = @TURMA_Numero, TURMA_ID = @TURMA_ID
+	WHERE ALUNO_Codigo = @ALUNO_Codigo
+
+	
+	EXEC projeto.addInstrumento @id=@ALUNO_Codigo, @instrumento=@inst
+GO
+
+
 
 
 --stored procedure para ver o numero de alunos por professor e retornar 
+

@@ -161,8 +161,8 @@ namespace EscolaDeMusica
             SqlDataAdapter adapter = new SqlDataAdapter();
             DataTable table = new DataTable();
 
-            SqlCommand identitySet = new SqlCommand("SET IDENTITY_INSERT projeto.Aluno ON", cn);
-            SqlCommand command = new SqlCommand("INSERT INTO projeto.Aluno(ALUNO_Codigo, Data_Nasc, Telemovel, Nome, sexo, NIF, Email, Morada, Mensalidade, TURMA_Numero, TURMA_ID) VALUES(@ALUNO_Codigo, @Data_Nasc, @Telemovel, @Nome, @Sexo, @NIF, @Email, @Morada, @Mensalidade, @TURMA_Numero, @TURMA_ID)", cn);
+            
+            SqlCommand command = new SqlCommand("projeto.updateAluno @ALUNO_Codigo, @Data_Nasc, @Telemovel, @Nome, @Sexo, @NIF, @Email, @Morada, @Mensalidade, @TURMA_Numero, @TURMA_ID, @inst", cn);
 
 
 
@@ -178,38 +178,21 @@ namespace EscolaDeMusica
             command.Parameters.Add("@Mensalidade", SqlDbType.Int).Value = 25;
             command.Parameters.Add("@TURMA_Numero", SqlDbType.Int).Value = 1;
             command.Parameters.Add("@TURMA_ID", SqlDbType.Int).Value = 1;
-
-            SqlCommand identityDelete = new SqlCommand("DELETE FROM projeto.Aluno WHERE ALUNO_Codigo=@ALUNO_Codigo", cn);
-            identityDelete.Parameters.Add("@ALUNO_Codigo", SqlDbType.Int).Value = id;
+            command.Parameters.Add("@inst", SqlDbType.VarChar).Value = instrumento;
 
 
-            //command.Parameters.Add("@ALUNO_Codigo", SqlDbType.Int).Value = ALUNO_Codigo;
 
-            //SqlCommand identityOf = new SqlCommand("SET IDENTITY_INSERT projeto.Aluno OFF", cn);
-
-            SqlCommand addInstrumento = new SqlCommand("INSERT INTO projeto.Toca(INTRUMENTO_Nome, ALUNO_Codigo, PROFESSOR_Codigo) VALUES(@INSTRUMENTO,  @CODIGO, @CODIGO_Prof)", cn);
-            addInstrumento.Parameters.Add("@INSTRUMENTO", SqlDbType.VarChar).Value = instrumento;
-            addInstrumento.Parameters.Add("@CODIGO", SqlDbType.Int).Value = id;
-            addInstrumento.Parameters.Add("@CODIGO_Prof", SqlDbType.Int).Value = 1;
 
 
 
             cn.Open();
 
-            int aux = addInstrumento.ExecuteNonQuery();
-            MessageBox.Show(" " + aux);
+            int i = command.ExecuteNonQuery();
 
+            MessageBox.Show("" + i, "sdsd", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            if (identitySet.ExecuteNonQuery() == -1 && identityDelete.ExecuteNonQuery() == 1 && command.ExecuteNonQuery() == 1)
-            {
-                cn.Close();
-                return true;
-            }
-            else
-            {
-                cn.Close();
-                return false;
-            }
+            cn.Close();
+            return true;
         }
 
         public bool deleteAluno(int id)

@@ -15,11 +15,11 @@ drop view listaProfessores
 CREATE VIEW listaProfessores AS
 SELECT projeto.Professor.*, projeto.Toca.INTRUMENTO_Nome
 FROM projeto.Professor
-left JOIN projeto.Toca
+inner JOIN projeto.Toca
 ON Toca.PROFESSOR_Codigo = Professor.PROFESSOR_Codigo
 
 
-
+select * from projeto.Toca
 
 CREATE VIEW listaProfs AS
 SELECT * FROM projeto.Professor

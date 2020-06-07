@@ -76,5 +76,28 @@ namespace EscolaDeMusica
             UpdateDelete updel = new UpdateDelete();
             updel.Show(this);
         }
+
+        private void verTurmasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void adicionarAlunoATurmaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Turma t = new Turma();
+            t.Show(this);
+        }
+
+        private void listaDeTurmasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TurmaLista aaa = new TurmaLista();
+            aaa.Show(this);
+        }
+
+        private void adicionarAlunoATurmaToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            adicionarAlunoTurma q = new adicionarAlunoTurma();
+            q.Show(this);
+        }
     }
 }

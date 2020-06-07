@@ -90,7 +90,7 @@ namespace EscolaDeMusica
             SqlDataAdapter adapter = new SqlDataAdapter();
             DataTable table = new DataTable();
 
-            SqlCommand command = new SqlCommand("projeto.updateProfessor @PROFESSOR_Codigo, @Data_Nasc, @Telemovel, @Nome, @Sexo, @NIF, @Email, @Morada, @Salario, @DISCIPLINA_ID, @inst", cn);
+            SqlCommand command = new SqlCommand("projeto.updateProfessor @PROFESSOR_Codigo, @Data_Nasc, @Telemovel, @Nome, @Sexo, @NIF, @Email, @Morada, @DISCIPLINA_ID, @inst", cn);
 
             
             command.Parameters.Add("@PROFESSOR_Codigo", SqlDbType.Int).Value = id;
@@ -101,8 +101,6 @@ namespace EscolaDeMusica
             command.Parameters.Add("@NIF", SqlDbType.Int).Value = nif;
             command.Parameters.Add("@Email", SqlDbType.VarChar).Value = email;
             command.Parameters.Add("@Morada", SqlDbType.VarChar).Value = morada;
-
-            command.Parameters.Add("@Salario", SqlDbType.Int).Value = 10000;
             command.Parameters.Add("@DISCIPLINA_ID", SqlDbType.Int).Value = 1;
 
 
@@ -245,7 +243,7 @@ namespace EscolaDeMusica
             command.Parameters.Add("@NIF", SqlDbType.Int).Value = nif;
             command.Parameters.Add("@Email", SqlDbType.VarChar).Value = email;
             command.Parameters.Add("@Morada", SqlDbType.VarChar).Value = morada;
-            command.Parameters.Add("@Salario", SqlDbType.Int).Value = 600;
+            command.Parameters.Add("@Salario", SqlDbType.Int).Value = 0;
 
 
             command.Parameters.Add("@DISCIPLINA_ID", SqlDbType.Int).Value = 1;

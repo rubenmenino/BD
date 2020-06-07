@@ -79,6 +79,8 @@ namespace EscolaDeMusica
         private void button1_Click(object sender, EventArgs e)
         {
             cn = getSGBDConnection();
+            SqlCommand atualizar = new SqlCommand("projeto.atualizarSalario", cn);            cn.Open();            atualizar.ExecuteNonQuery();            cn.Close();
+
             SqlCommand command = new SqlCommand("SELECT * FROM listaProfessores", cn);
             //command.CommandType = CommandType.StoredProcedure;
             dataGridView1.ReadOnly = true;

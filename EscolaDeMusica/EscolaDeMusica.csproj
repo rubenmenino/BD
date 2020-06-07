@@ -52,6 +52,12 @@
     <Compile Include="AdicionarAluno.Designer.cs">
       <DependentUpon>AdicionarAluno.cs</DependentUpon>
     </Compile>
+    <Compile Include="adicionarAlunoTurma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="adicionarAlunoTurma.Designer.cs">
+      <DependentUpon>adicionarAlunoTurma.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdicionarProfessor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,6 +116,18 @@
     <Compile Include="Register_Form.Designer.cs">
       <DependentUpon>Register_Form.cs</DependentUpon>
     </Compile>
+    <Compile Include="Turma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Turma.Designer.cs">
+      <DependentUpon>Turma.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TurmaLista.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TurmaLista.Designer.cs">
+      <DependentUpon>TurmaLista.cs</DependentUpon>
+    </Compile>
     <Compile Include="UpdateDelete.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -118,6 +136,9 @@
     </Compile>
     <EmbeddedResource Include="AdicionarAluno.resx">
       <DependentUpon>AdicionarAluno.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="adicionarAlunoTurma.resx">
+      <DependentUpon>adicionarAlunoTurma.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdicionarProfessor.resx">
       <DependentUpon>AdicionarProfessor.cs</DependentUpon>
@@ -154,6 +175,12 @@
     </Compile>
     <EmbeddedResource Include="Register_Form.resx">
       <DependentUpon>Register_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Turma.resx">
+      <DependentUpon>Turma.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TurmaLista.resx">
+      <DependentUpon>TurmaLista.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UpdateDelete.resx">
       <DependentUpon>UpdateDelete.cs</DependentUpon>

@@ -33,12 +33,13 @@
             this.adicionarAlunoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listaDeAlunosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editarRemoverToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aulasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.professorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.adicionarProfessorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listaDeProfessoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gruposToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.turmaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.adicionarAlunoATurmaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.adicionarAlunoATurmaToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.direçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eventoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.adicionarEventoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -50,7 +51,6 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.alunoToolStripMenuItem,
-            this.aulasToolStripMenuItem,
             this.professorToolStripMenuItem,
             this.gruposToolStripMenuItem,
             this.turmaToolStripMenuItem,
@@ -94,13 +94,6 @@
             this.editarRemoverToolStripMenuItem.Text = "Editar/ Remover";
             this.editarRemoverToolStripMenuItem.Click += new System.EventHandler(this.editarRemoverToolStripMenuItem_Click);
             // 
-            // aulasToolStripMenuItem
-            // 
-            this.aulasToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.aulasToolStripMenuItem.Name = "aulasToolStripMenuItem";
-            this.aulasToolStripMenuItem.Size = new System.Drawing.Size(57, 24);
-            this.aulasToolStripMenuItem.Text = "Aulas";
-            // 
             // professorToolStripMenuItem
             // 
             this.professorToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -135,10 +128,27 @@
             // 
             // turmaToolStripMenuItem
             // 
+            this.turmaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.adicionarAlunoATurmaToolStripMenuItem,
+            this.adicionarAlunoATurmaToolStripMenuItem1});
             this.turmaToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.turmaToolStripMenuItem.Name = "turmaToolStripMenuItem";
             this.turmaToolStripMenuItem.Size = new System.Drawing.Size(63, 24);
             this.turmaToolStripMenuItem.Text = "Turma";
+            // 
+            // adicionarAlunoATurmaToolStripMenuItem
+            // 
+            this.adicionarAlunoATurmaToolStripMenuItem.Name = "adicionarAlunoATurmaToolStripMenuItem";
+            this.adicionarAlunoATurmaToolStripMenuItem.Size = new System.Drawing.Size(243, 24);
+            this.adicionarAlunoATurmaToolStripMenuItem.Text = "Criar turma";
+            this.adicionarAlunoATurmaToolStripMenuItem.Click += new System.EventHandler(this.adicionarAlunoATurmaToolStripMenuItem_Click);
+            // 
+            // adicionarAlunoATurmaToolStripMenuItem1
+            // 
+            this.adicionarAlunoATurmaToolStripMenuItem1.Name = "adicionarAlunoATurmaToolStripMenuItem1";
+            this.adicionarAlunoATurmaToolStripMenuItem1.Size = new System.Drawing.Size(243, 24);
+            this.adicionarAlunoATurmaToolStripMenuItem1.Text = "Adicionar Aluno a Turma";
+            this.adicionarAlunoATurmaToolStripMenuItem1.Click += new System.EventHandler(this.adicionarAlunoATurmaToolStripMenuItem1_Click);
             // 
             // direçãoToolStripMenuItem
             // 
@@ -198,7 +208,6 @@
         private System.Windows.Forms.ToolStripMenuItem adicionarAlunoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem listaDeAlunosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editarRemoverToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem aulasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem professorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gruposToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem turmaToolStripMenuItem;
@@ -208,5 +217,7 @@
         private System.Windows.Forms.ToolStripMenuItem eventoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem adicionarEventoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem listaDeEventosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem adicionarAlunoATurmaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem adicionarAlunoATurmaToolStripMenuItem1;
     }
 }

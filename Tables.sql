@@ -31,12 +31,12 @@ CREATE TABLE projeto.Toca(
 ---------------------------------------------------------
 ---------------------------------------------------------
 
-
+drop table projeto.Disciplina
 CREATE TABLE projeto.Disciplina (
 	ID					INT         NOT NULL,
 	Nome				VARCHAR(30) NOT NULL,
 	PROFESSOR_Codigo	INT			NOT NULL,
-	PRIMARY KEY(ID)
+	PRIMARY KEY(ID, Nome)
 )
 
 --------------------------------------------------------
@@ -65,12 +65,12 @@ CREATE TABLE projeto.Grupo (
 
 ---------------------------------------------------------
 ---------------------------------------------------------
-
+drop table projeto.Turma
 CREATE TABLE projeto.Turma (
 	Numero				INT NOT NULL,
 	Capacidade			INT NOT NULL,
-	DISCILINA_ID		INT NOT NULL,
-	PRIMARY KEY(Numero,DISCILINA_ID),
+	DISCIPLINA_Nome		VARCHAR(30) NOT NULL,
+	PRIMARY KEY(Numero),
 	CHECK(Numero > 0),
 	CHECK(Capacidade > 0)
 )
@@ -84,6 +84,8 @@ CREATE TABLE projeto.PertenceTurma(
 	PRIMARY KEY(CODIGO_Aluno)
 )
 
+
+
 --------------------------------------------------------
 --------------------------------------------------------
 
@@ -91,11 +93,16 @@ CREATE TABLE projeto.PertenceDirecao(
 	CODIGO_Professor	SMALLINT	NOT NULL,
 	Ano					INT			NOT NULL,
 	Cargo				VARCHAR(30) NOT NULL,
+	PRIMARY KEY(CODIGO_Professor)
+
 )
 
+--------------------------------------------------------
+--------------------------------------------------------
 
 
-	
+CREATE TABLE projeto.Direcao (	Cargo				VARCHAR(30)	NOT NULL,	Ano					INT		NOT NULL,)
+
 ---------------------------------------------------------
 ---------------------------------------------------------
 
@@ -118,7 +125,7 @@ CREATE TABLE projeto.Request (
 	Ano					INT,	
 	PROFESSOR_Codigo	SMALLINT,
 	Aceitar				BIT				NOT NULL ,
-	EVENTO_Nome_rq			VARCHAR(30)		NOT NULL ,
+	EVENTO_Nome_rq		VARCHAR(30)		NOT NULL ,
 	PRIMARY KEY(EVENTO_Nome_rq)
 )
 
@@ -142,7 +149,7 @@ CREATE TABLE projeto.Evento (
 
 ---------------------------------------------------------
 ---------------------------------------------------------
-
+drop table projeto.Aluno
 CREATE TABLE projeto.Aluno (
 	ALUNO_Codigo		INT IDENTITY(1,1)	NOT NULL,
 	Data_Nasc			DATE				NOT NULL,
@@ -187,7 +194,7 @@ CREATE TABLE projeto.Professor (
 	DISCIPLINA_ID		INT,
 
 	PRIMARY KEY(PROFESSOR_Codigo),
-	CHECK(Salario > 350)
+	-- CHECK(Salario > 350)
 )
 go
 
@@ -198,10 +205,12 @@ go
 
 
 
-ALTER TABLE projeto.Turma ADD FOREIGN KEY(DISCILINA_ID) REFERENCES projeto.Disciplina(ID)
+ALTER TABLE projeto.Turma ADD FOREIGN KEY(DISCIPLINA_Nome) REFERENCES projeto.Disciplina(Nome)
 ALTER TABLE projeto.Tem ADD FOREIGN KEY(ALUNO_Codigo) REFERENCES projeto.Aluno(ALUNO_Codigo)
 ALTER TABLE projeto.Tem ADD FOREIGN KEY(PROFESSOR_Codigo) REFERENCES projeto.Professor(PROFESSOR_Codigo)
 ALTER TABLE projeto.PertenceTurma ADD FOREIGN KEY(CODIGO_Aluno) REFERENCES projeto.Aluno(ALUNO_Codigo)
+ALTER TABLE projeto.PertenceDirecao ADD FOREIGN KEY(CODIGO_Professor) REFERENCES projeto.Professor(PROFESSOR_Codigo)
+
 
 
 

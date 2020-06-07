@@ -49,4 +49,11 @@ AS
 GO
 
 
+DROP VIEW listaTurma
+CREATE VIEW listaTurma
+AS
+	SELECT projeto.Turma.*
+	FROM projeto.Turma
+
+
 -------------------------------------------------- instrumentos professoresdrop view projeto.profInstCREATE VIEW projeto.profInst ASSELECT projeto.Professor.PROFESSOR_Codigo, projeto.Toca.INTRUMENTO_NomeFROM projeto.Professorinner JOIN projeto.TocaON Toca.PROFESSOR_Codigo = Professor.PROFESSOR_Codigo-- instrumentos alunosdrop view projeto.alunInstCREATE VIEW projeto.alunInst ASSELECT projeto.Aluno.ALUNO_Codigo, projeto.Toca.INTRUMENTO_NomeFROM projeto.Alunoinner JOIN projeto.TocaON Toca.ALUNO_Codigo = Aluno.ALUNO_Codigo

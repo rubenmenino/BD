@@ -1,0 +1,37 @@
+CREATE RULE salarioProf AS @VALOR >= 0
+
+EXECUTE SP_BINDRULE salarioProf, 'projeto.Professor.Salario'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -15,8 +15,7 @@ namespace EscolaDeMusica
     public partial class AdicionarAluno : Form
     {
         private SqlConnection cn;
-        private int currentPessoa;
-        private bool adding;
+        
 
         //MY_DB db = new MY_DB();
         public AdicionarAluno()

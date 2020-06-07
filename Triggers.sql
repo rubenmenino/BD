@@ -25,3 +25,24 @@ CREATE Trigger removePrevious ON projeto.Toca
 GO
 
 
+GO
+CREATE TRIGGER projeto.VerProfessor ON projeto.Professor
+AFTER INSERT, UPDATE 
+AS	
+	IF (EXISTS(SELECT Aluno_Codigo FROM projeto.Aluno WHERE Aluno_Codigo in (SELECT PROFESSOR_Codigo FROM inserted)))
+		BEGIN
+			RAISERROR ('Professor não pode ser inserido/atualizado - já existe um aluno com esse numero', 16,1);
+			ROLLBACK TRAN;
+		END
+
+GO
+CREATE TRIGGER projeto.VerAluno ON projeto.Aluno 
+AFTER INSERT, UPDATE 
+AS	
+	IF (EXISTS(SELECT PROFESSOR_Codigo FROM projeto.Professor WHERE PROFESSOR_Codigo in (SELECT ALUNO_Codigo FROM inserted)))
+		BEGIN
+			RAISERROR ('Aluno não pode ser inserido/atualizado - já existe um professor com esse numero.', 16,1);
+			ROLLBACK TRAN;
+		END
+
+

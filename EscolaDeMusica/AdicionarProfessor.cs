@@ -122,13 +122,13 @@ namespace EscolaDeMusica
 
             if(i == -1)
             {
-                MessageBox.Show("Não foi atualizar a informação do professor.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                
                 return false;
             }
 
             else
             {
-                MessageBox.Show("A informação do professor foi atualizada!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+               
                 return true;
             }
             

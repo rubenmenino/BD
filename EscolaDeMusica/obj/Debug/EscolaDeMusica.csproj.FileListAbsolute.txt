@@ -43,3 +43,4 @@ C:\Users\SAUDADE\Desktop\BD\Projeto-BD\EscolaDeMusica\obj\Debug\EscolaDeMusica.a
 C:\Users\SAUDADE\Desktop\BD\Projeto-BD\EscolaDeMusica\obj\Debug\EscolaDeMusica.AdicionarMembroDirecao.resources
 C:\Users\SAUDADE\Desktop\BD\Projeto-BD\EscolaDeMusica\obj\Debug\EscolaDeMusica.Turma.resources
 C:\Users\SAUDADE\Desktop\BD\Projeto-BD\EscolaDeMusica\obj\Debug\EscolaDeMusica.TurmaLista.resources
+C:\Users\SAUDADE\Desktop\BD\Projeto-BD\EscolaDeMusica\obj\Debug\EscolaDeMusica.ListadeAlunosProfessor.resources

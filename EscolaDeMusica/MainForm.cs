@@ -105,5 +105,11 @@ namespace EscolaDeMusica
             AdicionarMembroDirecao add = new AdicionarMembroDirecao();
             add.Show(this);
         }
+
+        private void listaDeAlunosDoProfessorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ListadeAlunosProfessor list = new ListadeAlunosProfessor();
+            list.Show(this);
+        }
     }
 }

@@ -160,8 +160,8 @@ CREATE TABLE projeto.Aluno (
 	Email				VARCHAR(100)		NOT NULL,
 	Morada				VARCHAR(200)		NOT NULL,
 	Mensalidade			INT DEFAULT 25      NOT NULL ,
-	TURMA_Numero		INT,
-	TURMA_ID			INT,
+	TURMA_Numero		INT	,
+	TURMA_disciplina			VARCHAR(30),
 	PRIMARY KEY CLUSTERED (ALUNO_Codigo),
 	CHECK(Mensalidade > 20)
 )

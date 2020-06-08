@@ -23,9 +23,15 @@ namespace EscolaDeMusica
 
         private void initDisciplina()
         {
-            comboBox4.Items.Add("Aula teórica");
-            comboBox4.Items.Add("Aula prática");
-            comboBox4.Items.Add("Coro");
+            cn = getSGBDConnection();
+            SqlDataAdapter da = new SqlDataAdapter("select Nome FROM projeto.Disciplina", cn);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                comboBox4.Items.Add(dt.Rows[i]["Nome"]);
+            }
 
         }
 
@@ -82,10 +88,21 @@ namespace EscolaDeMusica
 
             cn.Open();
 
-            command.ExecuteNonQuery();
-            MessageBox.Show("O aluno foi adicionado à turma", "Aluno Adicionado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            int i = command.ExecuteNonQuery();
+            
 
             cn.Close();
+
+            if(i == -1)
+            {
+                MessageBox.Show("Não foi possivel criar uma turma.", "Aluno Adicionado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            else
+            {
+                MessageBox.Show("Turma adicionada!", "Aluno Adicionado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            
         }
 
         private void textBox3_TextChanged(object sender, EventArgs e)
@@ -99,6 +116,11 @@ namespace EscolaDeMusica
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

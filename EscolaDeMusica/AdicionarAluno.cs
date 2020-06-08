@@ -123,8 +123,8 @@ namespace EscolaDeMusica
             command.Parameters.Add("@Morada", SqlDbType.VarChar).Value = morada;
             command.Parameters.Add("@Mensalidade", SqlDbType.Int).Value = 25;
 
-            command.Parameters.Add("@TURMA_Numero", SqlDbType.Int).Value = 1;
-            command.Parameters.Add("@TURMA_ID", SqlDbType.Int).Value = 1;
+            command.Parameters.Add("@TURMA_Numero", SqlDbType.Int).Value = 0;
+            command.Parameters.Add("@TURMA_ID", SqlDbType.VarChar).Value = "";
 
 
             cn.Open();
@@ -175,8 +175,8 @@ namespace EscolaDeMusica
             command.Parameters.Add("@Morada", SqlDbType.VarChar).Value = morada;
 
             command.Parameters.Add("@Mensalidade", SqlDbType.Int).Value = 25;
-            command.Parameters.Add("@TURMA_Numero", SqlDbType.Int).Value = 1;
-            command.Parameters.Add("@TURMA_ID", SqlDbType.Int).Value = 1;
+            command.Parameters.Add("@TURMA_Numero", SqlDbType.Int).Value = 0;
+            command.Parameters.Add("@TURMA_ID", SqlDbType.VarChar).Value = "";
             command.Parameters.Add("@inst", SqlDbType.VarChar).Value = instrumento;
 
 
@@ -185,13 +185,24 @@ namespace EscolaDeMusica
 
 
             cn.Open();
-
             int i = command.ExecuteNonQuery();
-
-            MessageBox.Show("" + i, "sdsd", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
             cn.Close();
-            return true;
+
+
+
+            if (i == -1)
+            {
+               
+                return false;
+            }
+
+            else
+            {
+               
+                return true;
+            }
+
+            
         }
 
         public bool deleteAluno(int id, string instrumento)

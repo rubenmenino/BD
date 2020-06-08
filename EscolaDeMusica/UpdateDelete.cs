@@ -120,81 +120,71 @@ namespace EscolaDeMusica
 
         private void buttonEditar_Click(object sender, EventArgs e)
         {
-            try
+            
+            cn = getSGBDConnection();
+            //Data_Nasc, Telemovel, Nome, Sexo, NIF, Email, Morada
+            id = Convert.ToInt32(textBoxID.Text);
+            string instrumento = comboBox1.SelectedItem.ToString();
+
+            DateTime dataNascimento = dateTimePicker1.Value;
+            string telemovel = textBoxTelemovel.Text;
+            string nome = textBoxName.Text;
+            string sexo = "Masculino";
+            string nif = textBoxNIF.Text;
+            string email = textBoxEmail.Text;
+            string morada = textBoxMorada.Text;
+
+
+            if (radioButtonFeminino.Checked)
             {
-                cn = getSGBDConnection();
-                //Data_Nasc, Telemovel, Nome, Sexo, NIF, Email, Morada
-                id = Convert.ToInt32(textBoxID.Text);
-                string instrumento = comboBox1.SelectedItem.ToString();
+                sexo = "Feminino";
+            }
 
-                DateTime dataNascimento = dateTimePicker1.Value;
-                string telemovel = textBoxTelemovel.Text;
-                string nome = textBoxName.Text;
-                string sexo = "Masculino";
-                string nif = textBoxNIF.Text;
-                string email = textBoxEmail.Text;
-                string morada = textBoxMorada.Text;
+            int born_year = dateTimePicker1.Value.Year;
+            int this_yea = DateTime.Now.Year;
 
 
-                if (radioButtonFeminino.Checked)
+            if (((this_yea - born_year) < 10) || ((this_yea - born_year > 100)))
+            {
+                MessageBox.Show("Idade tem de ser entre 10 e 100 anos", "Data Inválida", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (verif())
+
+            {
+                // É um aluno
+                if (id < 100)
                 {
-                    sexo = "Feminino";
-                }
-
-                int born_year = dateTimePicker1.Value.Year;
-                int this_yea = DateTime.Now.Year;
-
-
-                if (((this_yea - born_year) < 10) || ((this_yea - born_year > 100)))
-                {
-                    MessageBox.Show("Idade tem de ser entre 10 e 100 anos", "Data Inválida", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else if (verif())
-
-                {
-                    // É um aluno
-                    if (id < 100)
+                    if (aluno.updateAluno(id, dataNascimento, telemovel, nome, sexo, nif, email, morada, instrumento))
                     {
-                        if (aluno.updateAluno(id, dataNascimento, telemovel, nome, sexo, nif, email, morada, instrumento))
-                        {
-                            MessageBox.Show("Informação do Aluno Atualizada", "Editar Aluno", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
-                        else
-                        {
-                            MessageBox.Show("Erro", "Editar Aluno", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
+                        MessageBox.Show("Informação do Aluno Atualizada", "Editar Aluno", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
-
-                    // É um professor
                     else
                     {
+                        MessageBox.Show("Erro", "Editar Aluno", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
 
-                        if (professor.updateProfessor(id, dataNascimento, telemovel, nome, sexo, nif, email, morada, instrumento))
-                        {
-                            MessageBox.Show("Informação do Professor Atualizada", "Editar Professor", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
-                        else
-                        {
-                            MessageBox.Show("Erro", "Editar Professor", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
+                // É um professor
+                else
+                {
 
+                    if (professor.updateProfessor(id, dataNascimento, telemovel, nome, sexo, nif, email, morada, instrumento))
+                    {
+                        MessageBox.Show("Informação do Professor Atualizada", "Editar Professor", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Erro", "Editar Professor", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
 
                 }
-                else
-                {
-                    MessageBox.Show("Espaços vazios", "Editar Aluno", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                }
+
             }
-            catch(Exception ex)
+            else
             {
-                MessageBox.Show("Procure por um código válido", "Editar aluno", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Espaços vazios", "Editar Aluno", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-
-            
-            
            
-
         }
 
         private void buttonRemover_Click_1(object sender, EventArgs e)

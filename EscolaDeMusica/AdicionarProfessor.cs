@@ -118,7 +118,20 @@ namespace EscolaDeMusica
             MessageBox.Show("" + i , "sdsd", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             cn.Close();
-            return true;
+
+
+            if(i == -1)
+            {
+                MessageBox.Show("Não foi atualizar a informação do professor.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            else
+            {
+                MessageBox.Show("A informação do professor foi atualizada!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return true;
+            }
+            
         }
 
         public bool deleteProfessor(int id)
@@ -137,9 +150,9 @@ namespace EscolaDeMusica
 
             cn.Open();
 
-
-
             command.ExecuteNonQuery();
+
+            MessageBox.Show("Professor eliminado com sucesso!", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             cn.Close();
             return true;

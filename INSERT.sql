@@ -61,17 +61,18 @@ INSERT INTO projeto.Toca VALUES
 		);
 
 
-
+SELECT * FROM projeto.Toca
 --------------------------------------------------------------------------------------------
 
 DELETE FROM projeto.Disciplina 
 -- ID, Nome, PROFESSOR_Codigo
 INSERT INTO projeto.Disciplina VALUES 
-		(1, 'Aula Prática', 1),
-		(2, 'Aula teórica', 3),
-		(3, 'Coro', 6
+		(1, 'Aula Prática', 100),
+		(2, 'Aula teórica', 101),
+		(3, 'Coro', 102
 		);
-		
+
+SELECT * FROM projeto.Disciplina		
 ------------------------------------------------------------------------------------------------
 
 DELETE FROM projeto.Participa

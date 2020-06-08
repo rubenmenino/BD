@@ -86,11 +86,20 @@ namespace EscolaDeMusica
 
             cn.Open();
 
-            command.ExecuteNonQuery();
-            MessageBox.Show("O evento foi adicionado", "Evento Adicionado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            int i = command.ExecuteNonQuery();
+            
 
             cn.Close();
 
+
+            if(i==-1)
+            {
+                MessageBox.Show("Não foi possivel adicionar o evento", "Evento Adicionado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                MessageBox.Show("O evento foi adicionado", "Evento Adicionado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
 

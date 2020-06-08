@@ -38,6 +38,13 @@ namespace EscolaDeMusica
 
         private void AdicionarMembroDirecao_Load(object sender, EventArgs e)
         {
+            cn = getSGBDConnection();
+            SqlCommand command = new SqlCommand("SELECT * FROM projeto.PertenceDirecao", cn);
+            //command.CommandType = CommandType.StoredProcedure;
+            dataGridView1.ReadOnly = true;
+            dataGridView1.RowTemplate.Height = 30;
+            dataGridView1.DataSource = getDirecao(command);
+            dataGridView1.AllowUserToAddRows = false;
 
         }
 
@@ -77,6 +84,8 @@ namespace EscolaDeMusica
             int id = Convert.ToInt32(textBox1.Text);
             string cargo = comboBox1.SelectedItem.ToString();
             int ano = dateTimePicker1.Value.Year;
+
+
 
             SqlCommand command = new SqlCommand("projeto.addProfessorDirecao @id, @cargo, @ano", cn);
 
@@ -126,6 +135,16 @@ namespace EscolaDeMusica
         private void button2_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            SqlCommand lista = new SqlCommand("SELECT * FROM projeto.PertenceDirecao", cn);
+            //command.CommandType = CommandType.StoredProcedure;
+            dataGridView1.ReadOnly = true;
+            dataGridView1.RowTemplate.Height = 30;
+            dataGridView1.DataSource = getDirecao(lista);
+            dataGridView1.AllowUserToAddRows = false;
         }
     }
 }

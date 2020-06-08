@@ -17,7 +17,24 @@ namespace EscolaDeMusica
         public adicionarAlunoTurma()
         {
             InitializeComponent();
+
+            initTurmas();
         }
+
+        private void initTurmas()
+        {
+            cn = getSGBDConnection();
+            SqlDataAdapter da = new SqlDataAdapter("select Numero FROM projeto.Turma", cn);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                comboBox1.Items.Add(dt.Rows[i]["Numero"]);
+            }
+
+        }
+
         private SqlConnection cn;
 
         private SqlConnection getSGBDConnection()
@@ -80,7 +97,6 @@ namespace EscolaDeMusica
 
             int id = Convert.ToInt32(textBox1.Text);
             int turma = Convert.ToInt32(comboBox1.SelectedItem.ToString());
-            MessageBox.Show(turma.ToString());
 
 
 
@@ -93,10 +109,21 @@ namespace EscolaDeMusica
 
             cn.Open();
 
-            command.ExecuteNonQuery();
-            MessageBox.Show("O aluno foi adicionado à turma", "Aluno Adicionado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            int i = command.ExecuteNonQuery();
+            
 
             cn.Close();
+
+
+            if(i == -1)
+            {
+                MessageBox.Show("Não foi poissivel adicionar o aluno à turma", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            else
+            {
+                MessageBox.Show("O aluno foi adicionado à turma", "Aluno Adicionado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }

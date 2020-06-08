@@ -63,6 +63,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Name = "ListEvent";
             this.Text = "ListEvent";
+            this.Load += new System.EventHandler(this.ListEvent_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 

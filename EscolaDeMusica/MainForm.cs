@@ -99,5 +99,11 @@ namespace EscolaDeMusica
             adicionarAlunoTurma q = new adicionarAlunoTurma();
             q.Show(this);
         }
+
+        private void adicionarMembroToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AdicionarMembroDirecao add = new AdicionarMembroDirecao();
+            add.Show(this);
+        }
     }
 }

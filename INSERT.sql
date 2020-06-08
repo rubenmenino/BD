@@ -116,7 +116,7 @@ SELECT * FROM projeto.Turma
 
 ---------------------------------------------------------------------------------------------------
 
-DELETE FROM projeto.Pertence
+DELETE FROM projeto.PertenceDirecao
 
 -- CODIGO_Funcionario, Ano, Cargo		
 INSERT INTO projeto.PertenceDirecao VALUES 
@@ -129,7 +129,16 @@ INSERT INTO projeto.PertenceDirecao VALUES
 		);
 		
 
-SELECT * FROM projeto.Pertence
+SELECT * FROM projeto.PertenceDirecao
+
+DELETE FROM projeto.Direcao
+INSERT INTO projeto.Direcao VALUES
+	('Presidente', 2020),
+	('SubPresidente', 2020),
+	('Diretor', 2020),
+	('Tesoureiro', 2020),
+	('Secretario', 2020
+	);
 
 ---------------------------------------------------------------------------------------------------
 

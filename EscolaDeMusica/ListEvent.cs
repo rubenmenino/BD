@@ -95,5 +95,10 @@ namespace EscolaDeMusica
             dataGridView1.DataSource = x.getEvent(command);
             dataGridView1.AllowUserToAddRows = false;
         }
+
+        private void ListEvent_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

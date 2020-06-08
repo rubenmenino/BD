@@ -39,3 +39,7 @@ C:\Users\Utilizador\Desktop\UNIVERSIDADE\2Semestre\BD\Projeto\2ªEntrega\Projeto
 C:\Users\Utilizador\Desktop\UNIVERSIDADE\2Semestre\BD\Projeto\2ªEntrega\Projeto-BD\EscolaDeMusica\obj\Debug\EscolaDeMusica.Turma.resources
 C:\Users\Utilizador\Desktop\UNIVERSIDADE\2Semestre\BD\Projeto\2ªEntrega\Projeto-BD\EscolaDeMusica\obj\Debug\EscolaDeMusica.TurmaLista.resources
 C:\Users\Utilizador\Desktop\UNIVERSIDADE\2Semestre\BD\Projeto\2ªEntrega\Projeto-BD\EscolaDeMusica\obj\Debug\EscolaDeMusica.adicionarAlunoTurma.resources
+C:\Users\SAUDADE\Desktop\BD\Projeto-BD\EscolaDeMusica\obj\Debug\EscolaDeMusica.adicionarAlunoTurma.resources
+C:\Users\SAUDADE\Desktop\BD\Projeto-BD\EscolaDeMusica\obj\Debug\EscolaDeMusica.AdicionarMembroDirecao.resources
+C:\Users\SAUDADE\Desktop\BD\Projeto-BD\EscolaDeMusica\obj\Debug\EscolaDeMusica.Turma.resources
+C:\Users\SAUDADE\Desktop\BD\Projeto-BD\EscolaDeMusica\obj\Debug\EscolaDeMusica.TurmaLista.resources

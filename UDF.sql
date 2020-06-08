@@ -23,3 +23,6 @@ DROP FUNCTION projeto.getCountAlunosProf CREATE FUNCTION projeto.getCountAlunos
 
 
 SELECT projeto.getCountAlunosProf(149);
+
+
+

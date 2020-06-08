@@ -189,57 +189,50 @@ namespace EscolaDeMusica
 
         private void buttonRemover_Click_1(object sender, EventArgs e)
         {
-            try
+           
+            id = Convert.ToInt32(textBoxID.Text);
+            string instrumento = comboBox1.SelectedIndex > 0 ? comboBox1.SelectedItem.ToString() : "";
+
+            if (MessageBox.Show("De certeza que quer eliminar o aluno/professor da base de dados?", "Apagar Aluno/Professor", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                id = Convert.ToInt32(textBoxID.Text);
-                string instrumento = comboBox1.SelectedItem.ToString();
-
-                if (MessageBox.Show("De certeza que quer eliminar o aluno/professor da base de dados?", "Apagar Aluno/Professor", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (id < 100)
                 {
-                    if (id < 100)
+                    if (aluno.deleteAluno(id, instrumento))
                     {
-                        if (aluno.deleteAluno(id, instrumento))
-                        {
-                            MessageBox.Show("Aluno Apagado", "Apagar aluno", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            textBoxID.Text = "";
-                            textBoxName.Text = "";
-                            textBoxTelemovel.Text = "";
-                            textBoxNIF.Text = "";
-                            textBoxEmail.Text = "";
-                            dateTimePicker1.Value = DateTime.Now;
-                            textBoxMorada.Text = "";
-                        }
-                        else
-                        {
-                            MessageBox.Show("Aluno não Apagado", "Apagar aluno", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
+                        MessageBox.Show("Aluno Apagado", "Apagar aluno", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        textBoxID.Text = "";
+                        textBoxName.Text = "";
+                        textBoxTelemovel.Text = "";
+                        textBoxNIF.Text = "";
+                        textBoxEmail.Text = "";
+                        dateTimePicker1.Value = DateTime.Now;
+                        textBoxMorada.Text = "";
                     }
-
                     else
                     {
-                        if (professor.deleteProfessor(id))
-                        {
-                            MessageBox.Show("Professor Apagado", "Apagar Professor", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            textBoxID.Text = "";
-                            textBoxName.Text = "";
-                            textBoxTelemovel.Text = "";
-                            textBoxNIF.Text = "";
-                            textBoxEmail.Text = "";
-                            dateTimePicker1.Value = DateTime.Now;
-                            textBoxMorada.Text = "";
-                        }
-                        else
-                        {
-                            MessageBox.Show("Professor não Apagado", "Apagar Professor", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
+                        MessageBox.Show("Aluno não Apagado", "Apagar aluno", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-
-
                 }
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show("Procure por um código válido", "Apagar aluno", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                else
+                {
+                    if (professor.deleteProfessor(id))
+                    {
+                        MessageBox.Show("Professor eliminado com sucesso!", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        textBoxID.Text = "";
+                        textBoxName.Text = "";
+                        textBoxTelemovel.Text = "";
+                        textBoxNIF.Text = "";
+                        textBoxEmail.Text = "";
+                        dateTimePicker1.Value = DateTime.Now;
+                        textBoxMorada.Text = "";
+                    }
+                    else
+                    {
+                        MessageBox.Show("Professor não Apagado", "Apagar Professor", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+ 
             } 
         }
 

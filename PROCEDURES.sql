@@ -270,12 +270,20 @@ GO
 
 
 
-
 -- procedure para dar update ao professor
 DROP PROC projeto.updateProfessor
 CREATE PROC projeto.updateProfessor (@PROFESSOR_Codigo INT, @Data_Nasc DATE, @Telemovel VARCHAR(15), @Nome VARCHAR(50), @Sexo VARCHAR(20), @NIF INT, @Email VARCHAR(100), @Morada VARCHAR(200), @DISCIPLINA_ID INT, @inst VARCHAR(30))
 AS
-	DECLARE @Salario INT	SET @Salario = projeto.getCountAlunosProf(@PROFESSOR_Codigo)
+	IF NOT EXISTS(
+		SELECT PROFESSOR_Codigo FROM projeto.Toca
+		WHERE PROFESSOR_Codigo = @PROFESSOR_Codigo
+	)
+	BEGIN
+		INSERT INTO projeto.TOCA(INTRUMENTO_Nome, ALUNO_Codigo, PROFESSOR_Codigo) VALUES(null, null, @PROFESSOR_Codigo)	
+	END
+
+
+	DECLARE @Salario INT	SET @Salario = projeto.getCountAlunosProf(@PROFESSOR_Codigo)
 
 
 	UPDATE projeto.Professor 
@@ -301,6 +309,10 @@ AS
 GO
 
 
+
+-- deleteProfessor
+
+DROP PROC projeto.deleteProfessorCREATE PROC projeto.deleteProfessor(@id INT)AS		DELETE FROM projeto.Professor WHERE PROFESSOR_Codigo = @id	DELETE FROM projeto.Toca WHERE PROFESSOR_Codigo = @id
 
 
 -- deleteAlunoE
@@ -335,7 +347,6 @@ AS
 			WHERE CODIGO_Aluno = @id
 		)
 		BEGIN
-
 			INSERT INTO projeto.PertenceTurma (CODIGO_Aluno, TURMA_Numero) VALUES (@id, @TURMA_Numero)
 			RETURN
 		END
@@ -359,4 +370,9 @@ DROP PROC projeto.addProfessorDirecaoCREATE PROC projeto.addProfessorDirecao(@i
 Go
 
 -- atualizar salario
-DROP PROC projeto.atualizarSalarioCREATE PROC projeto.atualizarSalarioAS	DECLARE @max_id SMALLINT	SET @max_id = (SELECT MAX(projeto.Professor.PROFESSOR_Codigo) FROM projeto.Professor)	DECLARE @current SMALLINT	SET @current = (SELECT MIN(projeto.Professor.PROFESSOR_Codigo) FROM projeto.Professor)	WHILE(@current <= @max_id) 	BEGIN		DECLARE @salario INT		SET @salario = projeto.getCountAlunosProf(@current)		UPDATE projeto.Professor		SET Salario = @salario		WHERE PROFESSOR_Codigo = @current		SET @current = @current + 1	END
+DROP PROC projeto.atualizarSalarioCREATE PROC projeto.atualizarSalarioAS	DECLARE @max_id SMALLINT	SET @max_id = (SELECT MAX(projeto.Professor.PROFESSOR_Codigo) FROM projeto.Professor)	DECLARE @current SMALLINT	SET @current = (SELECT MIN(projeto.Professor.PROFESSOR_Codigo) FROM projeto.Professor)	WHILE(@current <= @max_id) 	BEGIN		DECLARE @salario INT		SET @salario = projeto.getCountAlunosProf(@current)		UPDATE projeto.Professor		SET Salario = @salario		WHERE PROFESSOR_Codigo = @current		SET @current = @current + 1	ENDGODROP PROC projeto.getAlunosProf
+CREATE PROC projeto.getAlunosProf(@PROFESSOR_Codigo SMALLINT)
+AS
+	DECLARE @codigo as INT	DECLARE C CURSOR 	FOR SELECT ALUNO_Codigo FROM projeto.alunInst
+		WHERE INTRUMENTO_Nome = (SELECT INTRUMENTO_Nome FROM projeto.profInst WHERE PROFESSOR_Codigo = @PROFESSOR_Codigo)	OPEN C	FETCH C INTO @codigo	WHILE  @@FETCH_STATUS = 0 	BEGIN				SELECT Nome, ALUNO_Codigo, Email FROM projeto.Aluno
+		WHERE ALUNO_Codigo = @codigo		FETCH NEXT FROM C INTO @codigo	END		CLOSE C	DEALLOCATE CEXEC projeto.getAlunosProf  @PROFESSOR_Codigo = 115

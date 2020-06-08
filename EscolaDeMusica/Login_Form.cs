@@ -66,10 +66,6 @@ namespace EscolaDeMusica
             command5.Parameters.AddWithValue("@pPassword", textBoxPassword.Text);
             command5.Parameters.AddWithValue("@responseMessage", textBox1.Text);
 
-            
-
-
-
 
             adapter5.SelectCommand = command5;
             adapter5.Fill(table5);

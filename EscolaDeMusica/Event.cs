@@ -118,7 +118,7 @@ namespace EscolaDeMusica
             command.Parameters.Add("@Data_inicio", SqlDbType.Date).Value = inicio;
             command.Parameters.Add("@Data_fim", SqlDbType.Date).Value = fim;
             command.Parameters.Add("@Caracteristica", SqlDbType.VarChar).Value = caract;
-            command.Parameters.Add("@EVENTO_Ano", SqlDbType.Int).Value = id;
+            command.Parameters.Add("@EVENTO_Ano", SqlDbType.Int).Value = inicio.Year;
 
             command.Parameters.Add("@Aceite", SqlDbType.Bit).Value = Aceitar ? 1: 0;
 

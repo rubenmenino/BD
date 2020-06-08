@@ -15,7 +15,7 @@ drop view listaProfessores
 CREATE VIEW listaProfessores AS
 SELECT projeto.Professor.*, projeto.Toca.INTRUMENTO_Nome
 FROM projeto.Professor
-inner JOIN projeto.Toca
+LEFT JOIN projeto.Toca
 ON Toca.PROFESSOR_Codigo = Professor.PROFESSOR_Codigo
 
 
@@ -57,3 +57,6 @@ AS
 
 
 -------------------------------------------------- instrumentos professoresdrop view projeto.profInstCREATE VIEW projeto.profInst ASSELECT projeto.Professor.PROFESSOR_Codigo, projeto.Toca.INTRUMENTO_NomeFROM projeto.Professorinner JOIN projeto.TocaON Toca.PROFESSOR_Codigo = Professor.PROFESSOR_Codigo-- instrumentos alunosdrop view projeto.alunInstCREATE VIEW projeto.alunInst ASSELECT projeto.Aluno.ALUNO_Codigo, projeto.Toca.INTRUMENTO_NomeFROM projeto.Alunoinner JOIN projeto.TocaON Toca.ALUNO_Codigo = Aluno.ALUNO_Codigo
+
+-- lista de alunos do professor x
+DROP VIEW projeto.listaDeAlunosPorProfessor

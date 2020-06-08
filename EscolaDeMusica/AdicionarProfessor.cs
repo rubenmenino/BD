@@ -115,7 +115,7 @@ namespace EscolaDeMusica
 
             int i = command.ExecuteNonQuery();
 
-            MessageBox.Show("" + i , "sdsd", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //MessageBox.Show("" + i , "sdsd", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             cn.Close();
 
@@ -142,17 +142,17 @@ namespace EscolaDeMusica
             SqlDataAdapter adapter = new SqlDataAdapter();
             DataTable table = new DataTable();
 
-            SqlCommand command = new SqlCommand("DELETE FROM projeto.Professor WHERE PROFESSOR_Codigo=@PROFESSOR_Codigo", cn);
+            SqlCommand command = new SqlCommand("projeto.deleteProfessor @id", cn);
 
-            command.Parameters.Add("@PROFESSOR_Codigo", SqlDbType.Int).Value = id;
-
+            command.Parameters.Add("@id", SqlDbType.Int).Value = id;
+            
 
 
             cn.Open();
 
             command.ExecuteNonQuery();
 
-            MessageBox.Show("Professor eliminado com sucesso!", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            
 
             cn.Close();
             return true;

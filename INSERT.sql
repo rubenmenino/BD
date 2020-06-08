@@ -32,7 +32,7 @@ DBCC CHECKIDENT([projeto.Professor], RESEED, 0)
 go
 
 dbcc checkident([projeto.Professor], reseed, 105)
-
+SELECT * FROM listaProfessores
 ---------------------------------------------------------------------------------------
 
 DELETE FROM projeto.Toca

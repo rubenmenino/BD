@@ -221,7 +221,11 @@ namespace EscolaDeMusica
 
             cn.Open();
 
-            if (command.ExecuteNonQuery() == 1)
+            int i = command.ExecuteNonQuery();
+
+            //MessageBox.Show("" + i, "asfas", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            if (i == 1)
             {
                 cn.Close();
                 return true;

@@ -1,4 +1,10 @@
--- TRIGGERS 
+/*	
+* Gabriel Saudade 89304
+* Ruben Menino 
+*
+*		TRIGGERS
+*/
+
 
 
 GO

@@ -111,5 +111,17 @@ namespace EscolaDeMusica
             ListadeAlunosProfessor list = new ListadeAlunosProfessor();
             list.Show(this);
         }
+
+        private void criarGrupoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Grupos ggg = new Grupos();
+            ggg.Show(this);
+        }
+
+        private void adicioanrMembroAGrupoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form1 form = new Form1();
+            form.Show(this);
+        }
     }
 }

@@ -60,13 +60,26 @@ CREATE TABLE projeto.Participa(
 ---------------------------------------------------------
 ---------------------------------------------------------
 
+drop table projeto.Grupo
 CREATE TABLE projeto.Grupo (
-	Representante		VARCHAR(30),
+	Representante		INT,
 	GRUPO_Tipo			VARCHAR(30),
-	PROFESSOR_Codigo	SMALLINT,
-	PRIMARY KEY(Representante, PROFESSOR_Codigo)
-	
+	PRIMARY KEY(Representante)
+
 )
+
+---------------------------------------------------------
+---------------------------------------------------------
+
+
+drop table projeto.PertenceGrupo
+CREATE TABLE projeto.PertenceGrupo(
+	Representante INT,
+	GRUPO_Tipo    VARCHAR(30),
+	CodigoP	      SMALLINT ,
+	CodigoA		  INT
+	
+	)
 
 
 ---------------------------------------------------------
@@ -216,7 +229,8 @@ ALTER TABLE projeto.Tem ADD FOREIGN KEY(ALUNO_Codigo) REFERENCES projeto.Aluno(A
 ALTER TABLE projeto.Tem ADD FOREIGN KEY(PROFESSOR_Codigo) REFERENCES projeto.Professor(PROFESSOR_Codigo)
 ALTER TABLE projeto.PertenceTurma ADD FOREIGN KEY(CODIGO_Aluno) REFERENCES projeto.Aluno(ALUNO_Codigo)
 ALTER TABLE projeto.PertenceDirecao ADD FOREIGN KEY(CODIGO_Professor) REFERENCES projeto.Professor(PROFESSOR_Codigo)
-
+ALTER TABLE projeto.PertenceGrupo ADD FOREIGN KEY(CodigoP) REFERENCES projeto.Professor(PROFESSOR_Codigo)
+ALTER TABLE projeto.PertenceGrupo ADD FOREIGN KEY(CodigoA) REFERENCES projeto.Aluno(Aluno_Codigo)
 
 
 

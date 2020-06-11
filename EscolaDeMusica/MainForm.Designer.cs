@@ -36,6 +36,7 @@
             this.professorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.adicionarProfessorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listaDeProfessoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.listaDeAlunosDoProfessorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gruposToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.turmaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.adicionarAlunoATurmaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -45,7 +46,8 @@
             this.eventoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.adicionarEventoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listaDeEventosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.listaDeAlunosDoProfessorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.criarGrupoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.adicioanrMembroAGrupoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -122,8 +124,18 @@
             this.listaDeProfessoresToolStripMenuItem.Text = "Lista de Professores";
             this.listaDeProfessoresToolStripMenuItem.Click += new System.EventHandler(this.listaDeProfessoresToolStripMenuItem_Click);
             // 
+            // listaDeAlunosDoProfessorToolStripMenuItem
+            // 
+            this.listaDeAlunosDoProfessorToolStripMenuItem.Name = "listaDeAlunosDoProfessorToolStripMenuItem";
+            this.listaDeAlunosDoProfessorToolStripMenuItem.Size = new System.Drawing.Size(265, 24);
+            this.listaDeAlunosDoProfessorToolStripMenuItem.Text = "Lista de Alunos do Professor";
+            this.listaDeAlunosDoProfessorToolStripMenuItem.Click += new System.EventHandler(this.listaDeAlunosDoProfessorToolStripMenuItem_Click);
+            // 
             // gruposToolStripMenuItem
             // 
+            this.gruposToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.criarGrupoToolStripMenuItem,
+            this.adicioanrMembroAGrupoToolStripMenuItem});
             this.gruposToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gruposToolStripMenuItem.Name = "gruposToolStripMenuItem";
             this.gruposToolStripMenuItem.Size = new System.Drawing.Size(68, 24);
@@ -194,12 +206,19 @@
             this.listaDeEventosToolStripMenuItem.Text = "Lista de Eventos";
             this.listaDeEventosToolStripMenuItem.Click += new System.EventHandler(this.listaDeEventosToolStripMenuItem_Click);
             // 
-            // listaDeAlunosDoProfessorToolStripMenuItem
+            // criarGrupoToolStripMenuItem
             // 
-            this.listaDeAlunosDoProfessorToolStripMenuItem.Name = "listaDeAlunosDoProfessorToolStripMenuItem";
-            this.listaDeAlunosDoProfessorToolStripMenuItem.Size = new System.Drawing.Size(265, 24);
-            this.listaDeAlunosDoProfessorToolStripMenuItem.Text = "Lista de Alunos do Professor";
-            this.listaDeAlunosDoProfessorToolStripMenuItem.Click += new System.EventHandler(this.listaDeAlunosDoProfessorToolStripMenuItem_Click);
+            this.criarGrupoToolStripMenuItem.Name = "criarGrupoToolStripMenuItem";
+            this.criarGrupoToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.criarGrupoToolStripMenuItem.Text = "Criar grupo";
+            this.criarGrupoToolStripMenuItem.Click += new System.EventHandler(this.criarGrupoToolStripMenuItem_Click);
+            // 
+            // adicioanrMembroAGrupoToolStripMenuItem
+            // 
+            this.adicioanrMembroAGrupoToolStripMenuItem.Name = "adicioanrMembroAGrupoToolStripMenuItem";
+            this.adicioanrMembroAGrupoToolStripMenuItem.Size = new System.Drawing.Size(259, 24);
+            this.adicioanrMembroAGrupoToolStripMenuItem.Text = "Adicionar membro a grupo";
+            this.adicioanrMembroAGrupoToolStripMenuItem.Click += new System.EventHandler(this.adicioanrMembroAGrupoToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -240,5 +259,7 @@
         private System.Windows.Forms.ToolStripMenuItem adicionarAlunoATurmaToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem adicionarMembroToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem listaDeAlunosDoProfessorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem criarGrupoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem adicioanrMembroAGrupoToolStripMenuItem;
     }
 }

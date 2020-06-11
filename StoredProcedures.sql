@@ -349,4 +349,62 @@ AS
 		WHERE ALUNO_Codigo = ( SELECT ALUNO_Codigo FROM projeto.alunInst
 							   WHERE INTRUMENTO_Nome = (SELECT INTRUMENTO_Nome FROM projeto.profInst WHERE PROFESSOR_Codigo = @PROFESSOR_Codigo))	DECLARE @codigo as INT	DECLARE C CURSOR 	FOR SELECT ALUNO_Codigo FROM projeto.alunInst
 		WHERE INTRUMENTO_Nome = (SELECT INTRUMENTO_Nome FROM projeto.profInst WHERE PROFESSOR_Codigo = @PROFESSOR_Codigo)	OPEN C	FETCH C INTO @codigo	WHILE  @@FETCH_STATUS = 0 	BEGIN				SELECT Nome, ALUNO_Codigo, Email FROM projeto.Aluno
-		WHERE ALUNO_Codigo = @codigo		FETCH NEXT FROM C INTO @codigo	END		CLOSE C	DEALLOCATE CEXEC projeto.getAlunosProf  @PROFESSOR_Codigo = 115
+		WHERE ALUNO_Codigo = @codigo		FETCH NEXT FROM C INTO @codigo	END		CLOSE C	DEALLOCATE CEXEC projeto.getAlunosProf  @PROFESSOR_Codigo = 115--------------------------------------------------------DROP PROC projeto.criarGrupo
+CREATE PROC projeto.criarGrupo(@representante int, @tipo varchar(30))
+AS
+
+IF NOT EXISTS(
+		SELECT PROFESSOR_Codigo FROM projeto.Professor
+		WHERE PROFESSOR_Codigo = @representante
+	)
+	BEGIN
+		PRINT 'PROFESSOR NÂO EXISTE'
+		RETURN
+	END
+
+
+IF EXISTS(
+		SELECT GRUPO_Tipo FROM projeto.Grupo
+		WHERE GRUPO_Tipo = @tipo
+	)
+		BEGIN
+		print'Grupo com o mesmo nome'
+		return
+	END
+
+	INSERT INTO projeto.Grupo(Representante, GRUPO_Tipo) VALUES (@representante, @tipo )
+	
+	
+	--select * from projeto.Grupo
+
+-- inserir um codigo no grupo
+go 
+drop proc projeto.adicionarCodigoGrupo
+CREATE PROC projeto.adicionarCodigoGrupo (@codigoP SMALLINT, @codigoA INT, @tipo VARCHAR(30))
+AS
+	
+BEGIN
+	declare @representante INT
+	SET @representante = (SELECT Representante FROM projeto.Grupo WHERE @tipo = GRUPO_Tipo)
+	IF EXISTS (SELECT * FROM projeto.PertenceGrupo
+				WHERE @codigoP = CodigoP AND @codigoA = CodigoA)
+		BEGIN
+			PRINT 'Já pertence ao grupo'
+			RETURN
+		END
+
+	IF @codigoA > 99
+		BEGIN
+			INSERT INTO projeto.PertenceGrupo(Representante, GRUPO_Tipo, CodigoP, CodigoA) VALUES (@representante, @tipo, @codigoP, null)
+		END
+
+	IF @codigoA < 100
+		BEGIN
+			INSERT INTO projeto.PertenceGrupo(Representante, GRUPO_Tipo, CodigoP, CodigoA) VALUES (@representante, @tipo, null, @codigoA)
+		END	
+	
+END
+
+
+
+

@@ -56,7 +56,25 @@ AS
 	FROM projeto.Turma
 
 
--------------------------------------------------- instrumentos professoresdrop view projeto.profInstCREATE VIEW projeto.profInst ASSELECT projeto.Professor.PROFESSOR_Codigo, projeto.Toca.INTRUMENTO_NomeFROM projeto.Professorinner JOIN projeto.TocaON Toca.PROFESSOR_Codigo = Professor.PROFESSOR_Codigo-- instrumentos alunosdrop view projeto.alunInstCREATE VIEW projeto.alunInst ASSELECT projeto.Aluno.ALUNO_Codigo, projeto.Toca.INTRUMENTO_NomeFROM projeto.Alunoinner JOIN projeto.TocaON Toca.ALUNO_Codigo = Aluno.ALUNO_Codigo
+-------------------------------------------------- instrumentos professores
+drop view projeto.profInst 
+CREATE VIEW projeto.profInst 
+AS
+	SELECT projeto.Professor.PROFESSOR_Codigo, projeto.Toca.INTRUMENTO_Nome 
+	FROM projeto.Professor
+	inner JOIN projeto.Toca
+	ON Toca.PROFESSOR_Codigo = Professor.PROFESSOR_Codigo
+	
+	
+	
+	-- instrumentos alunos
+	drop view projeto.alunInst
+	CREATE VIEW projeto.alunInst 
+	AS
+	SELECT projeto.Aluno.ALUNO_Codigo, projeto.Aluno.Nome, projeto.Aluno.Telemovel, projeto.Toca.INTRUMENTO_Nome
+	FROM projeto.Aluno
+	inner JOIN projeto.Toca
+	ON Toca.ALUNO_Codigo = Aluno.ALUNO_Codigo
 
 -- lista de alunos do professor x
 DROP VIEW projeto.listaDeAlunosPorProfessor

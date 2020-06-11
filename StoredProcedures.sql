@@ -345,11 +345,9 @@ DROP PROC projeto.atualizarSalarioCREATE PROC projeto.atualizarSalarioAS	DECL
 --------------------------------------- Retorna a listas de alunos por professorDROP PROC projeto.getAlunosProf
 CREATE PROC projeto.getAlunosProf(@PROFESSOR_Codigo SMALLINT)
 AS
-		SELECT Nome, ALUNO_Codigo, Email FROM projeto.Aluno
-		WHERE ALUNO_Codigo = ( SELECT ALUNO_Codigo FROM projeto.alunInst
-							   WHERE INTRUMENTO_Nome = (SELECT INTRUMENTO_Nome FROM projeto.profInst WHERE PROFESSOR_Codigo = @PROFESSOR_Codigo))	DECLARE @codigo as INT	DECLARE C CURSOR 	FOR SELECT ALUNO_Codigo FROM projeto.alunInst
-		WHERE INTRUMENTO_Nome = (SELECT INTRUMENTO_Nome FROM projeto.profInst WHERE PROFESSOR_Codigo = @PROFESSOR_Codigo)	OPEN C	FETCH C INTO @codigo	WHILE  @@FETCH_STATUS = 0 	BEGIN				SELECT Nome, ALUNO_Codigo, Email FROM projeto.Aluno
-		WHERE ALUNO_Codigo = @codigo		FETCH NEXT FROM C INTO @codigo	END		CLOSE C	DEALLOCATE CEXEC projeto.getAlunosProf  @PROFESSOR_Codigo = 115--------------------------------------------------------DROP PROC projeto.criarGrupo
+		SELECT * FROM projeto.alunInst
+	WHERE INTRUMENTO_Nome = (SELECT INTRUMENTO_Nome FROM projeto.profInst WHERE PROFESSOR_Codigo = @PROFESSOR_Codigo)EXEC projeto.getAlunosProf  @PROFESSOR_Codigo = 115-------------------------------------
+--------------------------------------- Insere um grupoDROP PROC projeto.criarGrupo
 CREATE PROC projeto.criarGrupo(@representante int, @tipo varchar(30))
 AS
 
@@ -374,10 +372,10 @@ IF EXISTS(
 
 	INSERT INTO projeto.Grupo(Representante, GRUPO_Tipo) VALUES (@representante, @tipo )
 	
-	
-	--select * from projeto.Grupo
 
--- inserir um codigo no grupo
+-------------------------------------
+--------------------------------------- Adicionar um membro ao grupo
+
 go 
 drop proc projeto.adicionarCodigoGrupo
 CREATE PROC projeto.adicionarCodigoGrupo (@codigoP SMALLINT, @codigoA INT, @tipo VARCHAR(30))

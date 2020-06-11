@@ -41,7 +41,7 @@
             // comboBox4
             // 
             this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(133, 241);
+            this.comboBox4.Location = new System.Drawing.Point(160, 204);
             this.comboBox4.Name = "comboBox4";
             this.comboBox4.Size = new System.Drawing.Size(121, 21);
             this.comboBox4.TabIndex = 1;
@@ -49,7 +49,7 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(133, 135);
+            this.textBox2.Location = new System.Drawing.Point(160, 101);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(121, 20);
             this.textBox2.TabIndex = 2;
@@ -58,34 +58,38 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(17, 138);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(15, 100);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(91, 13);
+            this.label4.Size = new System.Drawing.Size(128, 18);
             this.label4.TabIndex = 3;
             this.label4.Text = "Número da turma:";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(17, 189);
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(15, 151);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(67, 13);
+            this.label5.Size = new System.Drawing.Size(90, 18);
             this.label5.TabIndex = 4;
             this.label5.Text = "Capacidade:";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(15, 241);
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(13, 203);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(55, 13);
+            this.label6.Size = new System.Drawing.Size(75, 18);
             this.label6.TabIndex = 5;
             this.label6.Text = "Disciplina:";
             // 
             // button2
             // 
-            this.button2.BackColor = System.Drawing.Color.Red;
-            this.button2.Location = new System.Drawing.Point(503, 92);
+            this.button2.BackColor = System.Drawing.Color.LawnGreen;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(341, 124);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(186, 71);
             this.button2.TabIndex = 6;
@@ -97,7 +101,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(12, 20);
+            this.label7.Location = new System.Drawing.Point(12, 28);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(162, 33);
             this.label7.TabIndex = 7;
@@ -105,14 +109,15 @@
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(133, 189);
+            this.textBox3.Location = new System.Drawing.Point(160, 151);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(121, 20);
             this.textBox3.TabIndex = 8;
             // 
             // Turma
             // 
-            this.ClientSize = new System.Drawing.Size(800, 380);
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.ClientSize = new System.Drawing.Size(566, 280);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.button2);

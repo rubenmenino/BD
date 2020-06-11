@@ -99,7 +99,7 @@
             // 
             // buttonLogin
             // 
-            this.buttonLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.buttonLogin.BackColor = System.Drawing.Color.LawnGreen;
             this.buttonLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonLogin.Location = new System.Drawing.Point(76, 242);
             this.buttonLogin.Name = "buttonLogin";
@@ -111,7 +111,7 @@
             // 
             // buttonCancel
             // 
-            this.buttonCancel.BackColor = System.Drawing.Color.Red;
+            this.buttonCancel.BackColor = System.Drawing.Color.OrangeRed;
             this.buttonCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonCancel.Location = new System.Drawing.Point(247, 242);
             this.buttonCancel.Name = "buttonCancel";

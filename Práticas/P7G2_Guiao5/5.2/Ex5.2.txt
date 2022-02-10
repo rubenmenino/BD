@@ -1,0 +1,9 @@
+----------------------------------------------   5.2   ------------------------------------------------ 
+
+a) π nif,nome (σ encomenda.numero =null (ρ nif←fornecedor (encomenda) ⟖ fornecedor))
+
+b) πproduto.codigo,media (produto ⨝ ρ codigo←codProd (γ codProd; media←AVG(unidades) item))
+
+c) γ ; media←COUNT(total) (γ numEnc; total←COUNT(codProd) item)
+
+d) γ fornecedor,codigo,nome; quantidade←SUM(unidades) ((ρ codigo←codProd,numero←numEnc (item)) ⨝ π codigo,nome,preco,iva produto ⨝ encomenda)

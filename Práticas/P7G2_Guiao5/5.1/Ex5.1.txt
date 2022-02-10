@@ -1,0 +1,19 @@
+----------------------------------------------   5.1   ------------------------------------------------ 
+
+a)   π Pname, Fname, Minit, Lname, Ssn (project ⨝ Pnumber=Pno works_on ⨝ Essn=Ssn employee)
+
+b)   πFname,Minit,Lname (σSuper_ssn=21312332 (employee))
+ 
+c)   γPname; sum(Hours)->HorasSemana (project ⟗ Pno=Pnumber (works_on))
+
+d)   πFname,Minit,Lname (σHours > 20 ∧ Dno=3  ∧ Pname='Aveiro Digital' (employee ⟗ Ssn=Essn (project ⟗ Pno=Pnumber (works_on))))
+
+e)   πFname,Minit,Lname (σ Hours=null ∨ Pno=null ∨ Hours=null (employee ⟗ Ssn=Essn (works_on)))
+
+f)   γ Dname; avg(Salary)->avg_salary (σSex='F' (employee ⟗ Dno=Dnumber (department)))
+
+g)   (σ count > 2 (ρ Ssn←Essn γ Essn; count←count(Dependent_name) dependent)) ⋊ employee
+
+h)   πFname,Minit,Lname (σDependent_name=null ∧ Mgr_ssn!=null (department ⟗ Mgr_ssn=Ssn (employee ⟗ Essn=Ssn (dependent))))
+
+i)   π Fname, Minit, Lname, Address σ Dlocation != 'Aveiro' (dept_location ⨝ (ρ Dnumber←Dno employee ⨝ ρ Ssn←Essn (works_on ⨝ ρ Pno←Pnumber σ Plocation='Aveiro' project)))
